@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu CORIN </title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        header{
+            display: flex;
+            font-family:Verdana, Geneva, Tahoma, sans-serif;
+            background: rgb(32, 114, 186);
+            color : white;
+            padding: 20px;
+            box-shadow: 2px 2px 12px black;
+            justify-content: space-between;
+            align-items: center;
+
+        }
+        h1{
+            font-size: 75px;
+            font-weight: bold;
+        }
+        .profile{
+            background: rgb(55, 55, 167);
+            width: 90px;
+            height: 90px;
+            justify-self: end;
+            border-radius: 50%;
+        }
+        .info_pengguna{
+            display: flex;
+            align-items: center;
+            gap : 15px
+        }
+        .header_judul {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header_judul p {
+            font-size: 20px;
+            margin-left : 15px;
+        }
+        #card-riwayat{
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            border-radius: 10px;
+        }
+        h2{
+            margin-bottom: 20px;
+            color : rgb(17, 85, 109);
+            font-size: 50px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th{
+             background: rgb(32, 114, 186);
+            color: white;
+            padding : 12px;
+        }
+        td{
+            padding: 12px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+        }
+        tr:hover{
+             background-color: #f1f1f1;
+        }
+
+        button {
+            background-color: #3498db;
+            color :white;
+            border: none;
+            padding : 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover{
+            background-color: #2980b9;;
+        }
+
+        .proses{
+            color : rgb(210, 152, 7)
+        }
+
+        .tunggu {
+            color: rgb(35, 86, 189)
+        }
+        .selesai {
+            color: rgb(76, 169, 76)
+        }
+        .pp {
+            border-radius: 50%;
+            width: 90px;
+            height: 90px;
+            border-style: solid;
+            border-color: #103852;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header_judul">
+            <h1>CORIN</h1>
+            <p>RIWAYAT PESANAN</p>
+        </div>
+        <div class="info_pengguna">
+            <div class="nama_p">
+                <strong>MUHAMMAD ZAKI FADHILA PUTRA</strong>
+                <p>PBL-250315056</p>
+            </div>
+            <div class="profile">
+                <img class="pp" src="gambar/image.png" alt="ambatukam">
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="card-riwayat">
+            <h2>RIWAYAT PESANAN</h2>
+
+            <div class="tabel">
+                
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Kode Pesanan</th>
+                        <th>Tanggal</th>
+                        <th>Nama Kantin</th>
+                        <th>Total</th>
+                        <th>Status</th>
+                        <th>Detail</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>TRK001</td>
+                        <td>22/09/2026</td>
+                        <td>Kantin 1</td>
+                        <td>Rp 20000</td>
+                        <td><span class="proses">Sedang Dibuat</span></td>
+                        <td><button>Lihat</button></td>
+                    </tr>
+                    <tr>
+                        <td>TRK002</td>
+                        <td>22/09/2026</td>
+                        <td>Kantin 2</td>
+                        <td>Rp 15000</td>
+                        <td><span class="tunggu">Menunggu Konfirmasi</span></td>
+                        <td><button>Lihat</button></td>
+                    </tr>
+                    <tr>
+                        <td>TRK003</td>
+                        <td>22/09/2026</td>
+                        <td>Kantin 3</td>
+                        <td>Rp 15000</td>
+                        <td><span class="selesai">Selesai</span></td>
+                        <td><button>Lihat</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+</body>
+</html>
