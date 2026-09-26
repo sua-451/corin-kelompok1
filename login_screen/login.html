@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            min-height: 100vh;
+            background: #f4f6f9;
+
+            font-family: Arial, sans-serif;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .login-container {
+            width: 100%;
+            max-width: 400px;
+            padding: 20px;
+        }
+
+        .login-logo {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .login-logo h1 {
+            font-size: 32px;
+            font-weight: 300;
+        }
+
+        .login-logo h1 span {
+            font-weight: 700;
+        }
+
+        .login-logo p {
+            margin-top: 8px;
+            color: #777;
+        }
+
+        .login-card {
+            background: white;
+            padding: 25px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
+        }
+
+        .input-group {
+            margin-bottom: 15px;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ced4da;
+            border-radius: 4px;
+            font-size: 15px;
+        }
+
+        .input-group input:focus {
+            outline: none;
+            border-color: #80bdff;
+        }
+
+        .login-options {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .login-options label {
+            font-size: 14px;
+            color: #555;
+        }
+
+        .login-options button {
+            padding: 10px 18px;
+            border: none;
+            border-radius: 4px;
+
+            background: #007bff;
+            color: white;
+
+            cursor: pointer;
+        }
+
+        .login-options button:hover {
+            background: #0069d9;
+        }
+
+        .login-links {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .login-links a {
+            color: #007bff;
+            text-decoration: none;
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="login-container">
+
+        <div class="login-logo">
+            <h1>Login</h1>
+        </div>
+
+        <div class="login-card">
+
+            <form>
+                <div class="input-group">
+                    <input type="email" placeholder="Email">
+                </div>
+
+                <div class="input-group">
+                    <input type="password" placeholder="Password">
+                </div>
+
+                <div class="login-options">
+                    <label>
+                        <input type="checkbox">
+                        Remember Me
+                    </label>
+
+                    <button type="submit">Sign In</button>
+                </div>
+            </form>
+
+        </div>
+
+        <div class="login-links">
+            <a href="#">Forgot your password?</a>
+            <a href="register.html">Register a new account</a>
+        </div>
+
+    </div>
+
+</body>
+</html>

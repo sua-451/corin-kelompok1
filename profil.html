@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu Kantin</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f8f8f8;
+            padding-bottom: 80px;
+        }
+
+        /* Header */
+        .header {
+            background-color: #d98b39;
+            color: white;
+            padding: 25px 20px;
+            border-radius: 0 0 20px 20px;
+        }
+
+        .header h2 {
+            margin-bottom: 5px;
+        }
+
+        .header p {
+            font-size: 14px;
+        }
+
+        /* Search */
+        .search {
+            margin: 20px;
+        }
+
+        .search input {
+            width: 100%;
+            padding: 13px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            outline: none;
+        }
+
+        /* Kategori */
+        .kategori {
+            padding: 0 20px;
+        }
+
+        .kategori h3 {
+            margin-bottom: 12px;
+        }
+
+        .kategori-list {
+            display: flex;
+            gap: 10px;
+            overflow-x: auto;
+        }
+
+        .kategori-item {
+            background-color: white;
+            padding: 10px 18px;
+            border-radius: 20px;
+            border: 1px solid #ddd;
+            white-space: nowrap;
+        }
+
+        .kategori-item.active {
+            background-color: #d98b39;
+            color: white;
+        }
+
+        /* Menu */
+        .menu {
+            padding: 20px;
+        }
+
+        .menu h3 {
+            margin-bottom: 15px;
+        }
+
+        .menu-list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+
+        .menu-card {
+            background-color: white;
+            border-radius: 12px;
+            padding: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        .menu-image {
+            height: 120px;
+            background-color: #eee;
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 40px;
+        }
+
+        .menu-card h4 {
+            margin-top: 10px;
+            margin-bottom: 5px;
+        }
+
+        .harga {
+            color: #d98b39;
+            font-weight: bold;
+        }
+
+        .pesan {
+            width: 100%;
+            margin-top: 10px;
+            padding: 8px;
+            border: none;
+            border-radius: 8px;
+            background-color: #d98b39;
+            color: white;
+            cursor: pointer;
+        }
+
+        /* Bottom Navigation */
+        .bottom-nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 70px;
+            background-color: white;
+            border-top: 1px solid #ddd;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        .nav-item {
+            text-decoration: none;
+            color: #777;
+            text-align: center;
+            font-size: 13px;
+        }
+
+        .nav-item .icon {
+            display: block;
+            font-size: 22px;
+            margin-bottom: 4px;
+        }
+
+        .nav-item.active {
+            color: #d98b39;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <div class="header">
+        <h2>Menu Kantin</h2>
+        <p>Pilih makanan favoritmu hari ini!</p>
+    </div>
+
+    <!-- Search -->
+    <div class="search">
+        <input type="text" placeholder="Cari makanan atau minuman...">
+    </div>
+
+    <!-- Kategori -->
+    <div class="kategori">
+        <h3>Kategori</h3>
+
+        <div class="kategori-list">
+            <div class="kategori-item active">Semua</div>
+            <div class="kategori-item">Makanan</div>
+            <div class="kategori-item">Minuman</div>
+            <div class="kategori-item">Snack</div>
+        </div>
+    </div>
+
+    <!-- Daftar Menu -->
+    <div class="menu">
+        <h3>Menu Tersedia</h3>
+
+        <div class="menu-list">
+
+            <div class="menu-card">
+                <div class="menu-image">🍜</div>
+                <h4>Mie Ayam</h4>
+                <p class="harga">Rp10.000</p>
+                <button class="pesan">Pesan</button>
+            </div>
+
+            <div class="menu-card">
+                <div class="menu-image">🍚</div>
+                <h4>Nasi Goreng</h4>
+                <p class="harga">Rp12.000</p>
+                <button class="pesan">Pesan</button>
+            </div>
+
+            <div class="menu-card">
+                <div class="menu-image">🍗</div>
+                <h4>Ayam Geprek</h4>
+                <p class="harga">Rp13.000</p>
+                <button class="pesan">Pesan</button>
+            </div>
+
+            <div class="menu-card">
+                <div class="menu-image">🥤</div>
+                <h4>Es Teh</h4>
+                <p class="harga">Rp4.000</p>
+                <button class="pesan">Pesan</button>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Bottom Navigation -->
+    <nav class="bottom-nav">
+
+        <a href="#" class="nav-item active">
+            <span class="icon">🍴</span>
+            Menu
+        </a>
+
+        <a href="#" class="nav-item">
+            <span class="icon">🛒</span>
+            Pesanan
+        </a>
+
+        <a href="#" class="nav-item">
+            <span class="icon">☷</span>
+            Antrean
+        </a>
+
+        <a href="#" class="nav-item">
+            <span class="icon">♙</span>
+            Profil
+        </a>
+
+    </nav>
+
+</body>
+</html>
