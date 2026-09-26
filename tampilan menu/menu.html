@@ -17,7 +17,7 @@
         .header {
             background-color: rgb(255, 174, 231);
             color: white;
-            padding: 20px 20px;
+            padding: 20px;
             box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
             border-radius: 0 0 20px 20px;
         }
@@ -45,15 +45,41 @@
             gap: 8px;
             background-color: white;
             color: rgb(80, 80, 80);
-            padding: 10px 15px;
-            border-radius: 25px;
             cursor: pointer;
             box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
             transition: background-color 0.3s ease;
+            width: 90px;
+            height: 90px;
+            justify-self: end;
+            border-radius: 50%;
+        }
+        .pp {
+            border-radius: 50%;
+            width: 90px;
+            height: 90px;
+            border-style: solid;
+            border-color: #c2185b;
+        }
+        .pp_sub{
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border-color: #c2185b;
+            border-style: solid;
+        }
+        .info_pengguna{
+            display: flex;
+            align-items: center;
+            gap : 15px;
+            background: none;
+        }
+        .info_pengguna:hover{
+            background: none;
+            transform: none;
         }
 
-        .profil:hover {
-            background-color: rgb(255, 240, 250);
+        .nama_p {
+            color : white;
         }
 
         .profil span:first-child {
@@ -286,6 +312,9 @@
         .nav-item small {
             font-size: 11px;
         }
+        a {
+            text-decoration: none;
+        }
 
         /* ===== RESPONSIVE ===== */
         @media (min-width: 700px) {
@@ -307,10 +336,15 @@
                 <h1>CORIN</h1>
                 <p>Selamat Datang di Kantin Politeknik Negeri Cilacap</p>
             </div>
-            <div class="profil">
-                <span>👤</span>
-                <span>Profil</span>
+            <a href="../profile corin/prifilecorin.html" class="info_pengguna">
+            <div class="nama_p">
+                <strong>KELOMPOK 1</strong>
+                <p>PBL-250315056</p>
             </div>
+            <div class="profil">
+                <img class="pp" src="../riwayat_pesanan/gambar/image.png" alt="ambatukam">
+            </div>
+        </a>
         </div>
     </div>
 
@@ -412,7 +446,7 @@
     <nav class="bottom-nav">
         <div class="nav-item active">
             <span>⌂</span>
-            <small>Home</small>
+            <small>Menu</small>
         </div>
         <div class="nav-item">
             <span>🛒</span>
@@ -427,7 +461,9 @@
             <small>Favorit</small>
         </div>
         <a href="../profile corin/prifilecorin.html" class="nav-item">
-            <span>👤</span>
+            <div >
+                <img class="pp_sub" src="../riwayat_pesanan/gambar/image.png" alt="">
+            </div>
             <small>Profil</small>
         </a>
     </nav>
