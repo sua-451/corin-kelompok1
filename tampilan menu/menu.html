@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CORIN</title>
+
+    <style>
+        body {
+            margin: 0;
+            background-color: rgb(250, 250, 250);
+            font-family: 'Lucida Sans', Geneva, Verdana, sans-serif;
+            padding-bottom: 90px;
+        }
+
+        /* ===== HEADER ===== */
+        .header {
+            background-color: rgb(255, 174, 231);
+            color: white;
+            padding: 20px 20px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+            border-radius: 0 0 20px 20px;
+        }
+
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 30px;
+            letter-spacing: 1px;
+        }
+
+        .header p {
+            margin: 8px 0 0;
+            font-size: 14px;
+        }
+
+        .profil {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background-color: white;
+            color: rgb(80, 80, 80);
+            padding: 10px 15px;
+            border-radius: 25px;
+            cursor: pointer;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+            transition: background-color 0.3s ease;
+        }
+
+        .profil:hover {
+            background-color: rgb(255, 240, 250);
+        }
+
+        .profil span:first-child {
+            font-size: 18px;
+        }
+
+        /* ===== SEARCH BAR ===== */
+        .search-box {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            background-color: white;
+            border: 1px solid rgb(235, 235, 235);
+            border-radius: 15px;
+            padding: 12px 16px;
+            margin-bottom: 18px;
+
+            transition: border-color 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .search-box:focus-within {
+            border-color: rgb(255, 174, 231);
+            box-shadow: 0 0 0 3px rgba(255, 174, 231, 0.15);
+        }
+
+        .search-icon {
+            font-size: 16px;
+            color: rgb(160, 160, 160);
+        }
+
+        .search-input {
+            flex: 1;
+            border: none;
+            outline: none;
+            background: transparent;
+
+            font-family: inherit;
+            font-size: 14px;
+            color: rgb(60, 60, 60);
+        }
+
+        .search-input::placeholder {
+            color: rgb(180, 180, 180);
+        }
+
+        /* ===== KONTEN ===== */
+        .content {
+            padding: 20px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .kategori {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            overflow-x: auto;
+            padding-bottom: 5px;
+        }
+
+        .kategori-btn {
+            background-color: white;
+            color: rgb(120, 120, 120);
+            border: 1px solid rgb(230, 230, 230);
+            padding: 8px 18px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 500;
+            cursor: pointer;
+            white-space: nowrap;
+            font-family: inherit;
+            transition: all 0.25s ease;
+        }
+
+        .kategori-btn:hover {
+            border-color: rgb(255, 174, 231);
+            color: rgb(255, 100, 180);
+        }
+
+        .kategori-btn.active {
+            background-color: rgb(255, 174, 231);
+            color: white;
+            border-color: rgb(255, 174, 231);
+        }
+
+        .section-title {
+            font-size: 18px;
+            color: rgb(60, 60, 60);
+            margin: 0 0 15px 0;
+            letter-spacing: 0.5px;
+        }
+
+        /* ===== GRID MENU ===== */
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+        }
+
+        .menu-card {
+            background-color: white;
+            border-radius: 18px;
+            padding: 18px 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+            border: 1px solid rgb(245, 245, 245);
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .menu-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(255, 174, 231, 0.25);
+        }
+
+        .menu-emoji {
+            font-size: 48px;
+            margin-bottom: 10px;
+        }
+
+        .menu-nama {
+            font-size: 15px;
+            color: rgb(50, 50, 50);
+            margin: 0 0 6px 0;
+            font-weight: 600;
+        }
+
+        .menu-harga {
+            font-size: 13px;
+            color: rgb(255, 100, 180);
+            font-weight: 700;
+            margin: 0 0 15px 0;
+        }
+
+        .menu-aksi {
+            display: flex;
+            gap: 8px;
+            width: 100%;
+            align-items: center;
+        }
+
+        .btn-favorit {
+            background-color: rgb(255, 245, 252);
+            color: rgb(255, 100, 180);
+            border: none;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            font-size: 18px;
+            cursor: pointer;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.25s ease;
+            font-family: inherit;
+        }
+
+        .btn-favorit:hover {
+            background-color: rgb(255, 220, 240);
+            transform: scale(1.1);
+        }
+
+        .btn-tambah {
+            flex: 1;
+            background-color: rgb(255, 174, 231);
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            font-family: inherit;
+            transition: background-color 0.25s ease, transform 0.2s ease;
+        }
+
+        .btn-tambah:hover {
+            background-color: rgb(255, 140, 210);
+            transform: translateY(-1px);
+        }
+
+        /* ===== BOTTOM NAV ===== */
+        .bottom-nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            background-color: white;
+            padding: 10px 0;
+            border-top: 1px solid rgb(240, 240, 240);
+            box-shadow: 0 -3px 10px rgba(0, 0, 0, 0.04);
+            z-index: 100;
+        }
+
+        .nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+            color: rgb(160, 160, 160);
+            cursor: pointer;
+            padding: 6px 22px;
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: 500;
+            transition: color 0.3s ease, background-color 0.3s ease;
+        }
+
+        .nav-item:hover {
+            color: rgb(255, 120, 190);
+            background-color: rgb(255, 245, 252);
+        }
+
+        .nav-item.active {
+            color: rgb(255, 100, 180);
+            background-color: rgb(255, 240, 250);
+        }
+
+        .nav-item span {
+            font-size: 22px;
+        }
+
+        .nav-item small {
+            font-size: 11px;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (min-width: 700px) {
+            .menu-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <!-- ===== HEADER ===== -->
+    <div class="header">
+
+        <div class="header-top">
+            <div>
+                <h1>CORIN</h1>
+                <p>Selamat Datang di Kantin Politeknik Negeri Cilacap</p>
+            </div>
+            <div class="profil">
+                <span>👤</span>
+                <span>Profil</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== KONTEN UTAMA ===== -->
+    <main class="content">
+
+        <!-- Pencarian-->
+         <div class="search-box">
+            <span class="search-icon">⌕</span>
+            <input type="text"
+            class="search-input"
+            placeholder="Cari Makanan atau Minuman..."
+            >
+         </div>
+
+        <!-- Kategori -->
+        <div class="kategori">
+            <button class="kategori-btn active">Semua</button>
+            <button class="kategori-btn">Makanan</button>
+            <button class="kategori-btn">Minuman</button>
+        </div>
+
+        <h2 class="section-title">Daftar Menu</h2>
+
+        <!-- Grid Menu -->
+        <div class="menu-grid">
+
+            <div class="menu-card">
+                <div class="menu-emoji">🍜</div>
+                <h3 class="menu-nama">Mie Ayam</h3>
+                <p class="menu-kantin">KANTIN KAMAS LOMAN</p>
+                <p class="menu-harga">Rp 12.000</p>
+                <div class="menu-aksi">
+                    <button class="btn-favorit">♡</button>
+                    <button class="btn-tambah">＋ Tambah</button>
+                </div>
+            </div>
+
+            <div class="menu-card">
+                <div class="menu-emoji">🥤</div>
+                <h3 class="menu-nama">Es Teh Manis</h3>
+                <p class="menu-kantin">KANTIN KAMAS LOMAN</p>
+                <p class="menu-harga">Rp 4.000</p>
+                <div class="menu-aksi">
+                    <button class="btn-favorit">♡</button>
+                    <button class="btn-tambah">＋ Tambah</button>
+                </div>
+            </div>
+
+            <div class="menu-card">
+                <div class="menu-emoji">🍱</div>
+                <h3 class="menu-nama">Nasi Bento</h3>
+                <p class="menu-kantin">KANTIN MIE ACADEMY</p>
+                <p class="menu-harga">Rp 18.000</p>
+                <div class="menu-aksi">
+                    <button class="btn-favorit">♡</button>
+                    <button class="btn-tambah">＋ Tambah</button>
+                </div>
+            </div>
+
+            <div class="menu-card">
+                <div class="menu-emoji">🧋</div>
+                <h3 class="menu-nama">Es Kopi</h3>
+                <p class="menu-kantin">KANTIN MIE ACADEMY</p>
+                <p class="menu-harga">Rp 8.000</p>
+                <div class="menu-aksi">
+                    <button class="btn-favorit">♡</button>
+                    <button class="btn-tambah">＋ Tambah</button>
+                </div>
+            </div>
+
+            <div class="menu-card">
+                <div class="menu-emoji">🍗</div>
+                <h3 class="menu-nama">Nasi Jukut</h3>
+                <p class="menu-kantin">KANTIN TEZ</p>
+                <p class="menu-harga">Rp 13.000</p>
+                <div class="menu-aksi">
+                    <button class="btn-favorit">♡</button>
+                    <button class="btn-tambah">＋ Tambah</button>
+                </div>
+            </div>
+
+            <div class="menu-card">
+                <div class="menu-emoji">🧃</div>
+                <h3 class="menu-nama">Jus Buah</h3>
+                <p class="menu-kantin">KANTIN TEZ</p>
+                <p class="menu-harga">Rp 13.000</p>
+                <div class="menu-aksi">
+                    <button class="btn-favorit">♡</button>
+                    <button class="btn-tambah">＋ Tambah</button>
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- ===== BOTTOM NAV ===== -->
+    <nav class="bottom-nav">
+        <div class="nav-item active">
+            <span>⌂</span>
+            <small>Home</small>
+        </div>
+        <div class="nav-item">
+            <span>🛒</span>
+            <small>Keranjang</small>
+        </div>
+         <div class="nav-item">
+            <span>❤️</span>
+            <small>Favorit</small>
+        </div>
+        <div class="nav-item">
+            <span>👤</span>
+            <small>Profil</small>
+        </div>
+    </nav>
+
+</body>
+</html>

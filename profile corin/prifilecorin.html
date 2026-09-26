@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile - Edit Profile</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="dashboard-container">
+        
+        <!-- Sidebar Kiri (Biru Utama) -->
+        <aside class="main-sidebar">
+            <div class="sidebar-logo">
+                <i class="fa-solid fa-gear"></i>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <a href="#" class="nav-item">
+                    <i class="fa-solid fa-border-all"></i>
+                    <span>Beranda</span>
+                </a>
+                <a href="#" class="nav-item active">
+                    <i class="fa-solid fa-user"></i>
+                    <span>Profile</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="fa-solid fa-briefcase"></i>
+                    <span>cari menu </span>
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="fa-solid fa-bookmark"></i>
+                    <span>keranjang menu</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="fa-solid fa-gear"></i>
+                    <span>no antrian</span>
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Area Konten Utama -->
+        <main class="main-content">
+            
+            <!-- Header Atas -->
+            <header class="top-header">
+                <h1 class="header-title">Profile</h1>
+                <div class="header-actions">
+                    <button class="icon-btn" aria-label="Notifikasi">
+                        <i class="fa-regular fa-bell"></i>
+                    </button>
+                    <div class="user-avatar-small">
+                        <img src="pp/wowo.jpg" alt="wowo">
+                    </div>
+                    <i class="fa-solid fa-chevron-down dropdown-icon"></i>
+                </div>
+            </header>
+
+            <!-- Grid Konten (Sub-Sidebar + Form) -->
+            <div class="content-body">
+                
+                <nav class="sub-sidebar">
+                    <a href="#" class="sub-nav-item active">
+                        <i class="fa-solid fa-pencil"></i>
+                        <span>Edit Profile</span>
+                        <i class="fa-solid fa-chevron-right arrow-icon"></i>
+                    </a>
+                    <a href="#" class="sub-nav-item">
+                        <i class="fa-regular fa-bell"></i>
+                        <span>Notifikasi</span>
+                    </a>
+                    <a href="#" class="sub-nav-item">
+                        <i class="fa-solid fa-table-cells-large"></i>
+                        <span>riwayat pesanan</span>
+                    </a>
+                    <a href="#" class="sub-nav-item">
+                        <i class="fa-solid fa-shield-halved"></i>
+                        <span>keamanan</span>
+                    </a>
+                </nav>
+
+                <!-- Form Edit Profil -->
+                <section class="form-section">
+                    <h2 class="section-title">Edit Profile</h2>
+
+                    <!-- Avatar Profile / Upload Foto -->
+                    <div class="avatar-upload-container">
+                        <div class="avatar-wrapper">
+                            <img src="pp/wowo.jpg" alt="wowo">
+                            <button class="camera-btn" aria-label="Ubah foto profil">
+                                <i class="fa-solid fa-camera"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Input Form -->
+                    <form class="profile-form">
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="nama depan">Nama depan</label>
+                                <input type="text" id="nama depan" value="">
+                            </div>
+                            <div class="form-group">
+                                <label for="nama belakang">nama belakang</label>
+                                <input type="text" id="nama belakang" value="">
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+    <div class="form-group">
+        <label for="nohp">No HP</label>
+        <input type="text" id="nohp">
+    </div>
+    <div class="form-group">
+        <label for="nim">NIM</label>
+        <input type="text" id="nim">
+    </div>
+</div>
+
+<!-- Baris 3: Email (Tetap penuh / 1 baris) -->
+<div class="form-group">
+    <label for="email">Email</label>
+    <input type="email" id="email">
+</div>
+                        <div class="form-actions">
+                            <button type="submit" class="btn-save">Save</button>
+                        </div>
+
+                    </form>
+                </section>
+
+            </div>
+        </main>
+
+    </div>
+
+</body>
+</html>

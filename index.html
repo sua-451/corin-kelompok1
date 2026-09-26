@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ini index</title>
+    <style>
+        img{
+            display: flex;
+            justify-self: center;
+            width: 1000px;
+             animation: muter-muter 5s linear infinite;
+             border-radius: 50%;
+             object-fit: cover;
+        }
+        body {
+            animation: jedag-jedug 0.5s infinite;
+        }       
+
+        @keyframes jedag-jedug {
+            0%   { background: red; }
+            20%  { background: blue; }
+            40%  { background: yellow; }
+            60%  { background: green; }
+            80%  { background: purple; }
+            100% { background: red; }
+        }
+
+        @keyframes muter-muter {
+            from{
+                transform: rotate(0deg);
+            }
+            to{
+                 transform: rotate(360deg);
+            }
+        }
+        a{
+            background: blue;
+            padding: 20px;
+            color: aliceblue;
+            text-decoration: none;
+            font-size: 20px;
+            border-radius: 10px;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+             transition: 0.3s all ease;
+
+        }
+        a:hover{
+            background: rgb(91, 129, 204);
+             transform: translateY(-3px);
+        }
+        .menu{
+            display: flex;
+            justify-self: center;
+            gap: 10px;
+            margin-bottom: 550px;
+        }
+    </style>
+</head>
+<body>
+    <img src="riwayat_pesanan/gambar/anomali.png" alt="">
+    <div class="menu">
+        <a href="menu.html">MENU</a>
+        <a href="riwayat_pesanan/riwayat_pemesanan.html">Riwayat Pesanan</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu CORIN </title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        header{
+            display: flex;
+            font-family:Verdana, Geneva, Tahoma, sans-serif;
+            background: rgb(32, 114, 186);
+            color : white;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+            justify-content: space-between;
+            align-items: center;
+        }
+        h1{
+            font-size: 75px;
+            font-weight: bold;
+        }
+        .profile{
+            background: rgb(55, 55, 167);
+            width: 90px;
+            height: 90px;
+            justify-self: end;
+            border-radius: 50%;
+        }
+        .info_pengguna{
+            display: flex;
+            align-items: center;
+            gap : 15px
+        }
+        .header_judul {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header_judul p {
+            font-size: 20px;
+            margin-left : 15px;
+        }
+        #card-riwayat{
+            background-color: white;
+            padding: 20px;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+        h2{
+            margin-bottom: 20px;
+            color : rgb(17, 85, 109);
+            font-size: 50px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            border-spacing: 0;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 20px 8px 24px rgba(0, 0, 0, 0.08);
+            margin-top: 22px;
+        }
+        th{
+            background: rgb(32, 114, 186);
+            color: white;
+            padding : 16px;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+        td{
+            padding: 16px;
+            text-align: center;
+            border-bottom: 1px solid rgb(32, 114, 186);
+        }
+        tr:hover{
+             background-color: #cae8fc;
+        }
+
+        a {
+            background-color: #3498db;
+            color :white;
+            border: none;
+            padding : 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s all ease;
+            text-decoration: none;
+        }
+
+        a:hover{
+            background-color: #2980b9;
+            transform: translateY(-3px);
+        }
+
+        tbody tr{
+             transition: all 0.2s ease;
+        }
+       tr:nth-child(even):hover {
+            background: #97ddfb;
+        }
+        
+        tr:nth-child(even){
+            background: #eef6ff;
+        }
+        tr{
+            background: #ffffff;
+            color: #1e3171;
+        }
+
+        .proses{
+            color : rgb(210, 152, 7)
+        }
+
+        .tunggu {
+            color: rgb(35, 86, 189)
+        }
+        .selesai {
+            color: rgb(76, 169, 76)
+        }
+        .pp {
+            border-radius: 50%;
+            width: 90px;
+            height: 90px;
+            border-style: solid;
+            border-color: #103852;
+        }
+        .awal{
+            display: flex;
+            justify-content: space-between;
+        }
+        #tambah{
+            background: rgb(32, 114, 186);
+            padding: 20px;
+            font-weight: 600;
+             color :white;
+             border-radius: 5px;
+             transition: 0.3s all ease;
+             text-decoration: none;
+        }
+        #menus{
+            background: rgb(32, 114, 186);
+            padding: 20px;
+            width: 150px;
+            font-weight: 600;
+             color :white;
+             border-radius: 5px;
+             transition: 0.3s all ease;
+              text-decoration: none;
+        }
+
+        #menus:hover, #tambah:hover{
+            background-color: #2980b9;
+            transform: translateY(-3px);
+            cursor: pointer;
+        }
+        #kontener_tombol{
+            margin-top: 15px;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header_judul">
+            <h1>CORIN</h1>
+            <p>RIWAYAT PESANAN</p>
+        </div>
+        <div class="info_pengguna">
+            <div class="nama_p">
+                <strong>MUHAMMAD ZAKI FADHILA PUTRA</strong>
+                <p>PBL-250315056</p>
+            </div>
+            <div class="profile">
+                <img class="pp" src="gambar/image.png" alt="ambatukam">
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="card-riwayat">
+            <div class="awal">
+                <h2>RIWAYAT PESANAN</h2>
+                <div id="kontener_tombol">
+                    <a href="../menu.html" id="menus">MENU</a>
+                    <a href="#" id="tambah"> + TAMBAH PESANAN</a>
+                </div>
+            </div>
+            
+
+            <div class="tabel">
+                
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Kode Pesanan</th>
+                        <th>Tanggal</th>
+                        <th>Nama Kantin</th>
+                        <th>Jumlah Item</th>
+                        <th>Total</th>
+                        <th>Status</th>
+                        <th>Detail</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>TRK001</td>
+                        <td>22/09/2026</td>
+                        <td>Kantin 1</td>
+                        <td>7</td>
+                        <td>Rp 20.000</td>
+                        <td><span class="proses">Sedang Dibuat</span></td>
+                        <td><a href="detail_riwayat/trk001.html">Lihat</a></td>
+                    </tr>
+                    <tr>
+                        <td>TRK002</td>
+                        <td>22/09/2026</td>
+                        <td>Kantin 2</td>
+                        <td>2</td>
+                        <td>Rp 15.000</td>
+                        <td><span class="tunggu">Menunggu Konfirmasi</span></td>
+                        <td><a href="detail_riwayat/trk002.html">Lihat</a></td>
+                    </tr>
+                    <tr>
+                        <td>TRK003</td>
+                        <td>22/09/2026</td>
+                        <td>Kantin 3</td>
+                        <td>1</td>
+                        <td>Rp 5.000</td>
+                        <td><span class="selesai">Selesai</span></td>
+                        <td><a href="detail_riwayat/trk003.html">Lihat</a></td>
+                    </tr>
+                    <tr>
+                        <td>TRK004</td>
+                        <td>22/09/2026</td>
+                        <td>Kantin 4</td>
+                        <td>1</td>
+                        <td>Rp 5.000</td>
+                        <td><span class="selesai">Selesai</span></td>
+                        <td><a href="detail_riwayat/error_sistem.html">Lihat</a></td>
+                    </tr>
+                    <tr>
+                        <td>TRK005</td>
+                        <td>22/09/2026</td>
+                        <td>Kantin 5</td>
+                        <td>2</td>
+                        <td>Rp 10.000</td>
+                        <td><span class="proses">Sedang Dibuat</span></td>
+                        <td><a href="detail_riwayat/error_sistem.html">Lihat</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+</body>
+</html>
