@@ -2,19 +2,31 @@
 :root { --sage:#B2C2A6; --charcoal:#2B2D31; --lime:#9ECC3B; --crimson:#B82633; --canvas:#F4F6F2; --metal:#8D9499; }
 * { font-family: Inter, Arial, sans-serif; }
 body { background:var(--canvas) !important; color:var(--charcoal) !important; }
+h1, h2, h3 { letter-spacing:-.03em; line-height:1.1; }
+p, td, input, button, a { line-height:1.45; }
 
 /* Shared structure */
-.header, .header_judul, .top-header, .navbar, .page-title { background:var(--sage) !important; color:var(--charcoal) !important; border-color:var(--charcoal) !important; }
-.header, .header_judul, .navbar, .top-header { border-bottom:2px solid var(--charcoal) !important; }
-.header h1, .header p, .header_judul, .nama_p, .header-title { color:var(--charcoal) !important; }
+header, .header, .header_judul, .top-header, .navbar, .page-title { background:var(--sage) !important; color:var(--charcoal) !important; border-color:var(--charcoal) !important; }
+header, .header, .header_judul, .navbar, .top-header { border-bottom:2px solid var(--charcoal) !important; }
+header h1, header p, .header h1, .header p, .header_judul, .nama_p, .header-title { color:var(--charcoal) !important; }
+header:not(.top-header), .header { min-height:150px !important; padding:22px 30px !important; border-radius:0 0 22px 22px; }
+header:not(.top-header) h1, .header h1 { font-size:clamp(2.25rem, 4vw, 3rem) !important; }
+header:not(.top-header) .header_judul p, .header p { margin-left:0 !important; font-size:.88rem !important; letter-spacing:.06em; }
+header:not(.top-header) .info_pengguna, .header .info_pengguna { gap:16px; }
+header:not(.top-header) .profile, header:not(.top-header) .profil, .header .profile, .header .profil { background:transparent !important; }
+header:not(.top-header) .pp, .header .pp { border:3px solid var(--charcoal) !important; }
 .bottom-nav, .nav-menu { background:#fff !important; border-color:var(--metal) !important; }
+.bottom-nav { min-height:72px; }
+.nav-item { min-width:82px; }
 .nav-item.active, .kategori-btn.active, .kategori-item.active, .active { background:var(--sage) !important; color:var(--charcoal) !important; }
 .nav-item:hover, .kategori-btn:hover, .kategori-item:hover { color:var(--charcoal) !important; background:#e5ecdf !important; }
 
 /* Cards use a stitched edge and a firm metal outline. */
-.menu-card, .cart-box, .summary, .card, .nota, .empty-cart, .register-card, .login-card, .dashboard-container, .menu, .pesan, .awal, .proses, .selesai, .tunggu { background:#fffefb !important; border:2px solid var(--charcoal) !important; border-radius:10px !important; box-shadow:4px 4px 0 rgba(43,45,49,.14) !important; }
-.menu-card, .cart-box, .card, .nota, .pesan, .awal, .proses, .selesai, .tunggu { border-top:3px dashed var(--sage) !important; }
+.menu-card, .cart-box, .summary, .card, .nota, .empty-cart, .register-card, .login-card, .dashboard-container, .menu, .pesan, .awal { background:#fffefb !important; border:2px solid var(--charcoal) !important; border-radius:10px !important; box-shadow:4px 4px 0 rgba(43,45,49,.14) !important; }
+.menu-card, .cart-box, .card, .nota, .pesan, .awal { border-top:3px dashed var(--sage) !important; }
 .menu-card:hover, .cart-box:hover, .card:hover { transform:translate(-2px,-2px); box-shadow:6px 6px 0 rgba(43,45,49,.18) !important; }
+.content, .container, .kontener { max-width:1100px !important; margin-left:auto !important; margin-right:auto !important; }
+.kontener { padding:0 20px 96px; }
 
 /* Buttons and links */
 button, .btn-save, .checkout-btn, .continue-btn, .tombol, .pesan, .btn-tambah, .register-options a, .login-options a { background:var(--lime) !important; color:var(--charcoal) !important; border:2px solid var(--charcoal) !important; border-radius:8px !important; font-weight:700 !important; box-shadow:3px 3px 0 var(--charcoal); }
@@ -29,16 +41,87 @@ input:focus, .search-box:focus-within { outline:none; border-color:var(--charcoa
 .role-slider { background:var(--lime) !important; }
 
 /* Queue status badges */
-.tunggu { border-color:var(--metal) !important; color:var(--charcoal) !important; }
-.proses { background:var(--sage) !important; color:var(--charcoal) !important; }
-.selesai, .status { background:var(--lime) !important; color:var(--charcoal) !important; }
 .harga, .price, .menu-harga, .item-total { color:#54751c !important; font-weight:700; }
 .infokan, .garis { border-color:var(--sage) !important; border-style:dashed !important; }
+
+/* Tables, order tickets, and the landing view. */
+table { background:#fffefb !important; border:2px solid var(--charcoal) !important; box-shadow:4px 4px 0 rgba(43,45,49,.14) !important; }
+th { background:var(--sage) !important; color:var(--charcoal) !important; border-bottom:2px solid var(--charcoal) !important; }
+th, td { padding:13px 16px !important; font-size:.92rem; }
+td { color:var(--charcoal) !important; border-bottom:1px dashed var(--metal) !important; }
+tbody tr, tr:nth-child(even) { background:#fffefb !important; color:var(--charcoal) !important; }
+tbody tr:hover, tr:nth-child(even):hover { background:#e8efdf !important; }
+#card-riwayat { background:var(--canvas) !important; }
+#card-riwayat h2, .kontener > h2 { font-size:clamp(2rem, 5vw, 3rem) !important; letter-spacing:-.04em; }
+#menus, #tambah, .back a { background:var(--lime) !important; color:var(--charcoal) !important; border:2px solid var(--charcoal) !important; border-radius:8px !important; font-weight:700 !important; box-shadow:3px 3px 0 var(--charcoal); }
+#menus:hover, #tambah:hover, .back a:hover { background:#b6e05e !important; transform:translate(2px,2px) !important; box-shadow:1px 1px 0 var(--charcoal) !important; }
+.nota { float:right; margin:10px 0 24px !important; background:var(--charcoal) !important; color:#fff !important; border-top-color:var(--lime) !important; }
+.nota span { color:var(--sage) !important; }
+.back { min-height:118px; padding-top:10px; }
+.back a { margin:0 !important; }
+.navbar a, table a { display:inline-block; background:var(--lime) !important; color:var(--charcoal) !important; border:2px solid var(--charcoal) !important; border-radius:7px !important; font-weight:700 !important; box-shadow:2px 2px 0 var(--charcoal); }
+.navbar a:hover, table a:hover { background:#b6e05e !important; transform:translate(1px,1px) !important; box-shadow:1px 1px 0 var(--charcoal); }
+.navbar .tombol { padding:0 !important; background:transparent !important; border:0 !important; border-radius:0 !important; box-shadow:none !important; }
+.navbar .tombol:hover { background:transparent !important; transform:none !important; box-shadow:none !important; }
+.navbar .tombol a { padding:10px 14px; }
+.proses, .tunggu, .selesai, .status { display:inline-block; padding:5px 9px; border:1.5px solid var(--charcoal) !important; border-radius:999px !important; box-shadow:none !important; }
+.tunggu { background:#fffefb !important; }
+.proses { background:var(--sage) !important; }
+.selesai, .status { background:var(--lime) !important; }
+.judul-kontainer { background:var(--charcoal) !important; }
+.judul { max-width:900px; }
+.judul h1 { color:var(--lime) !important; font-size:clamp(3.2rem, 9vw, 6rem) !important; text-shadow:2px 2px 0 var(--charcoal) !important; }
+.judul p { color:#fff !important; font-size:clamp(1.05rem, 2.4vw, 1.6rem) !important; }
+.garis { background:var(--lime) !important; border-top:2px dashed var(--sage) !important; }
+footer { background:var(--charcoal) !important; color:#fff !important; border-top:3px dashed var(--sage); }
+
+/* Tighter, more legible account and profile forms. */
+.login-container, .register-container { max-width:440px !important; }
+.login-logo h1, .register-logo h1 { color:var(--charcoal); font-size:2rem !important; font-weight:800 !important; }
+.login-card, .register-card { padding:28px !important; }
+.input-group input { min-height:46px; }
+.dashboard-container { max-width:1180px !important; }
+.form-section { padding:34px 42px !important; }
+
+/* The profile screen only needs a back link; its setting list is a utility panel. */
+.main-sidebar { width:150px !important; }
+.main-sidebar { padding-top:46px !important; }
+.main-sidebar .sidebar-nav { margin-top:0 !important; }
+.main-sidebar .nav-item { border:1.5px solid var(--sage); justify-content:flex-start; padding:11px 14px; }
+.sub-sidebar { background:#e5e7e8 !important; border-right:2px solid var(--metal) !important; padding-top:34px !important; }
+.sub-sidebar .sub-nav-item { color:#5d6368 !important; padding:10px 12px; border-radius:7px; }
+.sub-sidebar .sub-nav-item.active { background:#cdd1d3; color:var(--charcoal) !important; }
+.profile-identity { text-align:center; margin:-12px auto 28px; }
+.profile-identity h3 { font-size:1.15rem; margin-bottom:4px; }
+.profile-identity p { color:#62686d; font-family:ui-monospace, Consolas, monospace; font-size:.83rem; }
+.edit-title { font-size:1.05rem; margin:0 0 4px; color:var(--charcoal); }
+
+@media (max-width:700px) {
+  header { min-height:auto; padding:15px 18px !important; gap:14px; }
+  header h1 { font-size:2.1rem !important; }
+  header .header_judul p { font-size:.72rem !important; }
+  .profile, .pp { width:58px !important; height:58px !important; }
+  .kontener, .content, .container { padding-left:14px !important; padding-right:14px !important; }
+  .awal { align-items:flex-start !important; gap:14px; flex-direction:column; }
+  h2 { font-size:clamp(1.7rem, 8vw, 2.35rem) !important; }
+  #kontener_tombol { width:100%; }
+  #menus, #tambah { flex:1; width:auto !important; text-align:center; }
+  .nota { float:none; margin:16px 0 !important; width:100% !important; }
+  .back { min-height:auto; padding-top:0; }
+  .back a { width:100%; text-align:center; }
+  table { display:block; overflow-x:auto; white-space:nowrap; }
+  th, td { padding:11px 13px !important; }
+  .bottom-nav { overflow-x:auto; justify-content:flex-start !important; }
+  .nav-item { padding:6px 12px !important; min-width:72px; }
+  .form-row, .content-body { flex-direction:column; }
+  .main-sidebar, .sub-sidebar { width:100% !important; }
+  .main-sidebar { padding-top:16px !important; }
+  .main-sidebar .sidebar-nav { margin-top:0 !important; }
+  .form-section { padding:26px 20px !important; }
+}
 
 /* Profile dashboard */
 .main-sidebar { background:var(--charcoal) !important; border-right:2px solid var(--charcoal); }
 .main-sidebar .nav-item { color:#fff !important; }
 .main-sidebar .nav-item.active { background:var(--sage) !important; color:var(--charcoal) !important; }
-.sub-sidebar { background:#fffefb; border-right:2px dashed var(--sage) !important; }
-.sub-nav-item.active { color:var(--charcoal) !important; }
 .camera-btn { background:var(--lime) !important; border-color:var(--charcoal) !important; }
