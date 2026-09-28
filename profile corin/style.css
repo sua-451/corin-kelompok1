@@ -30,7 +30,7 @@ body {
 /* Sidebar Utama (Biru Kiri) */
 .main-sidebar {
     width: 220px;
-    background-color:#ff1493;
+    background-color:#4fbe1b;
     padding: 24px 16px;
     display: flex;
     flex-direction: column;
