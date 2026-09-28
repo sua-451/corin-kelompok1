@@ -27,10 +27,10 @@ body {
     min-height: 650px;
 }
 
-/* Sidebar Utama (Biru Kiri) */
+/* Sidebar Utama (Kiri) */
 .main-sidebar {
     width: 220px;
-    background-color:#4fbe1b;
+    background-color: #33363f; /* Warna netral gelap ala theme */
     padding: 24px 16px;
     display: flex;
     flex-direction: column;
@@ -38,35 +38,51 @@ body {
 }
 
 .sidebar-logo {
-    display: none; /* Disembunyikan agar sesuai gambar */
+    display: none;
 }
 
 .sidebar-nav {
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 10px;
     margin-top: 40px;
 }
 
+/* Ukuran Menu Sidebar Dibuat Presisi Sama Sesuai Kotak Profile */
 .nav-item {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 12px;
+    width: 100%;
+    padding: 12px 16px;
     color: #ffffff;
     text-decoration: none;
     font-size: 14px;
     font-weight: 500;
-    border-radius: 8px;
-    transition: background-color 0.2s;
+    border-radius: 10px;
+    transition: background-color 0.2s, transform 0.1s;
 }
 
+/* Profile / Menu Aktif (Latar Sage/Hijau Muda) */
 .nav-item.active {
-    background-color: rgba(255, 255, 255, 0.2);
+    background-color: #b2c2a3;
+    color: #1a237e;
+    font-weight: 700;
+}
+
+/* Logout (Latar Merah, Ukuran Sama Presisi) */
+.nav-item.logout {
+    background-color: #e53935;
+    color: #ffffff;
+    margin-top: 15px;
+}
+
+.nav-item.logout:hover {
+    background-color: #d32f2f;
 }
 
 .nav-item i {
-    display: none; /* Disembunyikan agar bersih seperti gambar */
+    display: none;
 }
 
 /* Area Konten Utama */
@@ -98,7 +114,7 @@ body {
 }
 
 .icon-btn, .dropdown-icon {
-    display: none; /* Sembunyikan elemen dekoratif yang tidak tampak di gambar */
+    display: none;
 }
 
 /* Foto Profil Pojok Kanan Atas */
@@ -146,7 +162,7 @@ body {
 }
 
 .sub-nav-item i {
-    display: none; /* Menyembunyikan ikon agar rata kiri bersih */
+    display: none;
 }
 
 /* Section Form */
@@ -182,21 +198,21 @@ body {
     object-fit: cover;
 }
 
-/* Tombol Kamera/Bulatan Biru */
+/* Indicator Kamera/Bulatan di Foto Profil */
 .camera-btn {
     position: absolute;
     bottom: 2px;
     right: 0;
     width: 18px;
     height: 18px;
-   background: #e91e63;
+    background: #a3c148;
     border: 2px solid #ffffff;
     border-radius: 50%;
     cursor: pointer;
 }
 
 .camera-btn i {
-    display: none; /* Menyembunyikan ikon kamera agar berbentuk lingkaran biru seperti gambar */
+    display: none;
 }
 
 /* Form Input Layout */
@@ -246,23 +262,31 @@ body {
     border-color: #1a73e8;
 }
 
-/* Tombol Save */
+/* Tombol Save (Warna Hijau & Posisi di Bawah No HP) */
 .form-actions {
     margin-top: 10px;
+    display: flex;
+    justify-content: flex-start;
 }
 
 .btn-save {
-    background: #e91e63;
-    color: #ffffff;
-    border: none;
+    background: #a3c148;
+    color: #000000;
+    border: 2px solid #2d3748;
     padding: 10px 36px;
-    font-size: 12px;
-    font-weight: 600;
-    border-radius: 8px;
+    font-size: 13px;
+    font-weight: bold;
+    border-radius: 10px;
     cursor: pointer;
-    transition: background-color 0.2s;
+    box-shadow: 3px 3px 0px #2d3748;
+    transition: background-color 0.2s, transform 0.1s;
 }
 
 .btn-save:hover {
-    background: #ee6e99;
+    background: #92b037;
+}
+
+.btn-save:active {
+    transform: translate(2px, 2px);
+    box-shadow: 1px 1px 0px #2d3748;
 }

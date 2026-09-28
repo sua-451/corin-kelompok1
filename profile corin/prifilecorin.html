@@ -11,7 +11,7 @@
 
     <div class="dashboard-container">
         
-        <!-- Sidebar Kiri (Biru Utama) -->
+        <!-- Sidebar Kiri Utama -->
         <aside class="main-sidebar">
             <div class="sidebar-logo">
                 <i class="fa-solid fa-gear"></i>
@@ -37,6 +37,11 @@
                 <a href="#" class="nav-item">
                     <i class="fa-solid fa-gear"></i>
                     <span>No Antrian</span>
+                </a>
+                <!-- Tombol Logout dengan class logout -->
+                <a href="../login/login.html" class="nav-item logout">
+                    <i class="fa-solid fa-sign-out-alt"></i>
+                    <span>Logout</span>
                 </a>
             </nav>
         </aside>
@@ -100,25 +105,27 @@
                         
                         <div class="form-row">
                             <div class="form-group">
-                                <label for="nama depan">Nama depan</label>
-                                <input type="text" id="nama depan" value="">
+                                <label for="nama-depan">Nama depan</label>
+                                <input type="text" id="nama-depan" value="">
                             </div>
                             <div class="form-group">
-                                <label for="nama belakang">nama belakang</label>
-                                <input type="text" id="nama belakang" value="">
+                                <label for="nama-belakang">nama belakang</label>
+                                <input type="text" id="nama-belakang" value="">
                             </div>
                         </div>
 
                         <div class="form-row">
-                          <div class="form-group">
-                           <label for="nohp">No HP</label>
-                        <input type="text" id="nohp">
-                    </div>
-                  <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" id="email">
-                    </div>
-                    </div>
+                            <div class="form-group">
+                                <label for="nohp">No HP</label>
+                                <input type="text" id="nohp">
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email">
+                            </div>
+                        </div>
+
+                        <!-- Tombol Save Berada di Luar form-row -->
                         <div class="form-actions">
                             <button type="submit" class="btn-save">Save</button>
                         </div>
