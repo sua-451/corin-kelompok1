@@ -72,24 +72,69 @@
             border-color: #80bdff;
         }
 
-        .register-options {
+        .role-picker {
             display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 15px;
-            justify-content: right;
+            position: relative;
+            margin-bottom: 18px;
+            padding: 4px;
+            border-radius: 6px;
+            background: #edf1f5;
         }
 
-        .register-options button {
+        .role-picker input {
+            position: absolute;
+            opacity: 0;
+        }
+
+        .role-picker label {
+            position: relative;
+            z-index: 1;
+            flex: 1;
+            padding: 10px 12px;
+            cursor: pointer;
+            text-align: center;
+            font-size: 14px;
+            color: #555;
+            transition: color 0.2s ease;
+        }
+
+        .role-slider {
+            position: absolute;
+            top: 4px;
+            bottom: 4px;
+            left: 4px;
+            width: calc(50% - 4px);
+            border-radius: 4px;
+            background: #28a745;
+            transition: transform 0.25s ease, background-color 0.25s ease;
+        }
+
+        #buyer:checked ~ .role-slider {
+            transform: translateX(100%);
+            background: #007bff;
+        }
+
+        #seller:checked ~ label[for="seller"],
+        #buyer:checked ~ label[for="buyer"] {
+            color: white;
+        }
+
+        .register-options {
+            text-align: right;
+        }
+
+        .register-options a {
+            display: inline-block;
             padding: 10px 18px;
-            border: none;
             border-radius: 4px;
             background: #28a745;
             color: white;
             cursor: pointer;
+            text-decoration: none;
+            font-size: 14px;
         }
 
-        .register-options button:hover {
+        .register-options a:hover {
             background: #218838;
         }
 
@@ -165,12 +210,18 @@
                 </div>
 
 
-                <!-- Options -->
-                <div class="register-options">
+                <!-- Pilihan jenis akun -->
+                <div class="role-picker">
+                    <input type="radio" name="role" id="seller" checked>
+                    <input type="radio" name="role" id="buyer">
+                    <label for="seller">Penjual</label>
+                    <label for="buyer">Pembeli</label>
+                    <span class="role-slider"></span>
+                </div>
 
-                    <button type="submit">
-                        Register
-                    </button>
+                <!-- Tombol utama, masih berupa tautan statis ke menu -->
+                <div class="register-options">
+                    <a href="../tampilan%20menu/menu.html">Register</a>
 
                 </div>
 
