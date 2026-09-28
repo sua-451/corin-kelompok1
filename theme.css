@@ -1,0 +1,44 @@
+/* Corin UI theme: sage apron, charcoal metal, and lime action accents. */
+:root { --sage:#B2C2A6; --charcoal:#2B2D31; --lime:#9ECC3B; --crimson:#B82633; --canvas:#F4F6F2; --metal:#8D9499; }
+* { font-family: Inter, Arial, sans-serif; }
+body { background:var(--canvas) !important; color:var(--charcoal) !important; }
+
+/* Shared structure */
+.header, .header_judul, .top-header, .navbar, .page-title { background:var(--sage) !important; color:var(--charcoal) !important; border-color:var(--charcoal) !important; }
+.header, .header_judul, .navbar, .top-header { border-bottom:2px solid var(--charcoal) !important; }
+.header h1, .header p, .header_judul, .nama_p, .header-title { color:var(--charcoal) !important; }
+.bottom-nav, .nav-menu { background:#fff !important; border-color:var(--metal) !important; }
+.nav-item.active, .kategori-btn.active, .kategori-item.active, .active { background:var(--sage) !important; color:var(--charcoal) !important; }
+.nav-item:hover, .kategori-btn:hover, .kategori-item:hover { color:var(--charcoal) !important; background:#e5ecdf !important; }
+
+/* Cards use a stitched edge and a firm metal outline. */
+.menu-card, .cart-box, .summary, .card, .nota, .empty-cart, .register-card, .login-card, .dashboard-container, .menu, .pesan, .awal, .proses, .selesai, .tunggu { background:#fffefb !important; border:2px solid var(--charcoal) !important; border-radius:10px !important; box-shadow:4px 4px 0 rgba(43,45,49,.14) !important; }
+.menu-card, .cart-box, .card, .nota, .pesan, .awal, .proses, .selesai, .tunggu { border-top:3px dashed var(--sage) !important; }
+.menu-card:hover, .cart-box:hover, .card:hover { transform:translate(-2px,-2px); box-shadow:6px 6px 0 rgba(43,45,49,.18) !important; }
+
+/* Buttons and links */
+button, .btn-save, .checkout-btn, .continue-btn, .tombol, .pesan, .btn-tambah, .register-options a, .login-options a { background:var(--lime) !important; color:var(--charcoal) !important; border:2px solid var(--charcoal) !important; border-radius:8px !important; font-weight:700 !important; box-shadow:3px 3px 0 var(--charcoal); }
+button:hover, .btn-save:hover, .checkout-btn:hover, .continue-btn:hover, .tombol:hover, .btn-tambah:hover, .register-options a:hover, .login-options a:hover { background:#b6e05e !important; transform:translate(2px,2px); box-shadow:1px 1px 0 var(--charcoal); }
+.delete-btn { background:var(--crimson) !important; color:#fff !important; border:2px solid var(--charcoal) !important; }
+.btn-favorit { background:#fffefb !important; color:var(--crimson) !important; border:2px solid var(--charcoal) !important; }
+
+/* Inputs and controls */
+input, .search, .search-box { background:#fffefb !important; color:var(--charcoal) !important; border:1.5px solid var(--metal) !important; border-radius:8px !important; }
+input:focus, .search-box:focus-within { outline:none; border-color:var(--charcoal) !important; box-shadow:0 0 0 3px rgba(158,204,59,.35) !important; }
+.role-picker { background:#e0e7dc !important; border:1.5px solid var(--charcoal); }
+.role-slider { background:var(--lime) !important; }
+
+/* Queue status badges */
+.tunggu { border-color:var(--metal) !important; color:var(--charcoal) !important; }
+.proses { background:var(--sage) !important; color:var(--charcoal) !important; }
+.selesai, .status { background:var(--lime) !important; color:var(--charcoal) !important; }
+.harga, .price, .menu-harga, .item-total { color:#54751c !important; font-weight:700; }
+.infokan, .garis { border-color:var(--sage) !important; border-style:dashed !important; }
+
+/* Profile dashboard */
+.main-sidebar { background:var(--charcoal) !important; border-right:2px solid var(--charcoal); }
+.main-sidebar .nav-item { color:#fff !important; }
+.main-sidebar .nav-item.active { background:var(--sage) !important; color:var(--charcoal) !important; }
+.sub-sidebar { background:#fffefb; border-right:2px dashed var(--sage) !important; }
+.sub-nav-item.active { color:var(--charcoal) !important; }
+.camera-btn { background:var(--lime) !important; border-color:var(--charcoal) !important; }
