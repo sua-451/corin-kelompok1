@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Profile - Edit Profile</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="../theme.css?v=6">
+    <link rel="stylesheet" href="../theme.css?v=8">
 </head>
 <body>
 
@@ -45,7 +45,10 @@
             <div class="content-body">
                 
                 <nav class="sub-sidebar">
-                    <a href="#" class="sub-nav-item active">
+                    <a href="#profile-saya" class="sub-nav-item active">
+                        <span>Profil Saya</span>
+                    </a>
+                    <a href="#edit-profile" class="sub-nav-item">
                         <i class="fa-solid fa-pencil"></i>
                         <span>Edit Profile</span>
                         <i class="fa-solid fa-chevron-right arrow-icon"></i>
@@ -61,8 +64,8 @@
                 </nav>
 
                 <!-- Form Edit Profil -->
-                <section class="form-section">
-                    <h2 class="section-title">Edit Profile</h2>
+                <section class="form-section" id="profile-saya">
+                    <h2 class="section-title">Profil Saya</h2>
 
                     <!-- Avatar Profile / Upload Foto -->
                     <div class="avatar-upload-container">
@@ -74,8 +77,14 @@
                         </div>
                     </div>
 
+                    <div class="profile-identity">
+                        <h3>KELOMPOK 1</h3>
+                        <p>PBL-250315056</p>
+                    </div>
+
                     <!-- Input Form -->
                     <form class="profile-form">
+                        <h3 class="edit-title" id="edit-profile">Edit Profile</h3>
                         
                         <div class="form-row">
                             <div class="form-group">

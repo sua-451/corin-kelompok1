@@ -9,9 +9,12 @@ p, td, input, button, a { line-height:1.45; }
 header, .header, .header_judul, .top-header, .navbar, .page-title { background:var(--sage) !important; color:var(--charcoal) !important; border-color:var(--charcoal) !important; }
 header, .header, .header_judul, .navbar, .top-header { border-bottom:2px solid var(--charcoal) !important; }
 header h1, header p, .header h1, .header p, .header_judul, .nama_p, .header-title { color:var(--charcoal) !important; }
-header { min-height:104px; padding:18px 30px !important; }
-header h1 { font-size:clamp(2.15rem, 5vw, 3.4rem) !important; }
-header .header_judul p { margin-left:0 !important; font-size:.9rem !important; letter-spacing:.08em; }
+header, .header { min-height:180px; padding:26px 30px !important; border-radius:0 0 22px 22px; }
+header h1, .header h1 { font-size:clamp(2.45rem, 5vw, 3.35rem) !important; }
+header .header_judul p, .header p { margin-left:0 !important; font-size:.92rem !important; letter-spacing:.06em; }
+header .info_pengguna, .header .info_pengguna { gap:16px; }
+header .profile, header .profil, .header .profile, .header .profil { background:transparent !important; }
+header .pp, .header .pp { border:3px solid var(--charcoal) !important; }
 .bottom-nav, .nav-menu { background:#fff !important; border-color:var(--metal) !important; }
 .bottom-nav { min-height:72px; }
 .nav-item { min-width:82px; }
@@ -49,6 +52,7 @@ td { color:var(--charcoal) !important; border-bottom:1px dashed var(--metal) !im
 tbody tr, tr:nth-child(even) { background:#fffefb !important; color:var(--charcoal) !important; }
 tbody tr:hover, tr:nth-child(even):hover { background:#e8efdf !important; }
 #card-riwayat { background:var(--canvas) !important; }
+#card-riwayat h2, .kontener > h2 { font-size:clamp(2rem, 5vw, 3rem) !important; letter-spacing:-.04em; }
 #menus, #tambah, .back a { background:var(--lime) !important; color:var(--charcoal) !important; border:2px solid var(--charcoal) !important; border-radius:8px !important; font-weight:700 !important; box-shadow:3px 3px 0 var(--charcoal); }
 #menus:hover, #tambah:hover, .back a:hover { background:#b6e05e !important; transform:translate(2px,2px) !important; box-shadow:1px 1px 0 var(--charcoal) !important; }
 .nota { float:right; margin:10px 0 24px !important; background:var(--charcoal) !important; color:#fff !important; border-top-color:var(--lime) !important; }
@@ -78,11 +82,16 @@ footer { background:var(--charcoal) !important; color:#fff !important; border-to
 
 /* The profile screen only needs a back link; its setting list is a utility panel. */
 .main-sidebar { width:150px !important; }
-.main-sidebar .sidebar-nav { margin-top:28px !important; }
+.main-sidebar { padding-top:46px !important; }
+.main-sidebar .sidebar-nav { margin-top:0 !important; }
 .main-sidebar .nav-item { border:1.5px solid var(--sage); justify-content:flex-start; padding:11px 14px; }
 .sub-sidebar { background:#e5e7e8 !important; border-right:2px solid var(--metal) !important; padding-top:34px !important; }
 .sub-sidebar .sub-nav-item { color:#5d6368 !important; padding:10px 12px; border-radius:7px; }
 .sub-sidebar .sub-nav-item.active { background:#cdd1d3; color:var(--charcoal) !important; }
+.profile-identity { text-align:center; margin:-12px auto 28px; }
+.profile-identity h3 { font-size:1.15rem; margin-bottom:4px; }
+.profile-identity p { color:#62686d; font-family:ui-monospace, Consolas, monospace; font-size:.83rem; }
+.edit-title { font-size:1.05rem; margin:0 0 4px; color:var(--charcoal); }
 
 @media (max-width:700px) {
   header { min-height:auto; padding:15px 18px !important; gap:14px; }
@@ -103,6 +112,7 @@ footer { background:var(--charcoal) !important; color:#fff !important; border-to
   .nav-item { padding:6px 12px !important; min-width:72px; }
   .form-row, .content-body { flex-direction:column; }
   .main-sidebar, .sub-sidebar { width:100% !important; }
+  .main-sidebar { padding-top:16px !important; }
   .main-sidebar .sidebar-nav { margin-top:0 !important; }
   .form-section { padding:26px 20px !important; }
 }
