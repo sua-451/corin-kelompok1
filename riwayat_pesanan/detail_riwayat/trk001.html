@@ -12,8 +12,8 @@
         }
         header{
             display: flex;
-            font-family:Verdana, Geneva, Tahoma, sans-serif;
-            background: rgb(32, 114, 186);
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            background: rgb(255, 133, 201);
             color : white;
             padding: 20px;
             box-shadow: 0 2px 4px rgba(0,0,0,0.08);
@@ -25,7 +25,7 @@
             font-weight: bold;
         }
         .profile{
-            background: rgb(55, 55, 167);
+            background: rgb(233, 30, 99);
             width: 90px;
             height: 90px;
             justify-self: end;
@@ -34,7 +34,7 @@
         .info_pengguna{
             display: flex;
             align-items: center;
-            gap : 15px
+            gap : 15px;
         }
         .header_judul {
             display: flex;
@@ -52,20 +52,21 @@
         }
         h2{
             margin-bottom: 25px;
-            color : rgb(17, 85, 109);
+            color : rgb(189, 43, 128);
             font-size: 50px;
         }
        
-         .pp {
+        .pp {
             border-radius: 50%;
             width: 90px;
             height: 90px;
+            margin-left: 1px;
             border-style: solid;
-            border-color: #103852;
+            border-color: #c2185b;
         }
 
         body {
-            background: #f4f7fb;
+            background: #fff0f7;
         }
         .kontener{
             max-width: 1000px;
@@ -77,89 +78,92 @@
             border-radius: 15px;
             padding: 25px;
             margin-bottom: 20px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.08);;
+            box-shadow: 0 5px 15px rgba(233,30,99,0.08);
         }
         .infokan{
-            display:grid;
-            grid-template-columns:repeat(2,1fr);
-            gap:20px;
-            
+            display: grid;
+            grid-template-columns: repeat(2,1fr);
+            gap: 20px;
         }
         .infokan span{
-             color:#7f8c8d;
-            font-size:14px;
+            color: #7f8c8d;
+            font-size: 14px;
         }
         .infokan p {
-             margin-top:5px;
-            font-weight:600;
+            margin-top: 5px;
+            font-weight: 600;
         }
         .status {
-             color:#d4ae22;
+            color: #d4ae22;
         }
         table{
             width: 100%;
             border-collapse: collapse;
             border-radius: 10px;
             overflow: hidden;
-             box-shadow: 0 5px 15px rgba(0,0,0,0.08);;
+            box-shadow: 0 5px 15px rgba(233,30,99,0.08);
         }
         th{
-            background:#2980b9;
-            color:white;
+            background: #e91e63;
+            color: white;
             padding: 30px;
-            text-align:left;
+            text-align: left;
         }
         td{
-             padding:12px;
-            border-bottom:1px solid #ecf0f1;
+            padding: 12px;
+            border-bottom: 1px solid #fce8f2;
         }
         tr:hover{
-             background:#f8fafc;    
+            background: #fff5fb;    
         }
         .nota{
             display: flex;
-            background: #2980b9;
+            background: #e91e63;
             justify-self: end;
-            padding: 5px;
-            width: 220px;
-            color:white;
+            padding: 15px 20px;
+            width: 250px;
+            color: white;
             justify-content: center;
             border-radius: 10px;
-            box-shadow: 20px 8px 24px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 8px 24px rgba(233, 30, 99, 0.2);
+            margin-top: 10px;
         }
         .nota span{
             display: block;
-            color:#d1f0e6;
+            color: #ffd1eb;
             margin-bottom: 5px;
+            font-size: 14px;
+        }
+        .nota p {
+            font-size: 18px;
+            font-weight: bold;
         }
         .back a{
-            display:inline-block;
-            padding:12px 25px;
-            background:#2980b9;
-            color:white;
-            text-decoration:none;
-            border-radius:8px;
-            font-weight:600;
-            transition:.3s;
+            display: inline-block;
+            padding: 12px 25px;
+            background: #e91e63;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: .3s;
             margin: 20px auto;
         }
         .back a:hover{
-            transform:translateY(-3px);
-            box-shadow:0 8px 20px rgba(41,128,185,.3);
+            background: #c2185b;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(233,30,99,.3);
         }
-        img{
-            width: 100px;
-            height: 100px;
+        .card img{
+            width: 60px;
+            height: 60px;
             border-radius: 50%;
             object-fit: cover;
             border-style: solid;
-            border-color: #103852;
-            margin-left: 25px;
+            border-color: #c2185b;
+            border-width: 2px;
+            margin-left: 0;
         }
-        
-
-
-
     </style>
 </head>
 <body>
@@ -170,7 +174,7 @@
         </div>
         <div class="info_pengguna">
             <div class="nama_p">
-                <strong>MUHAMMAD ZAKI FADHILA PUTRA</strong>
+                <strong>KELOMPOK 1</strong>
                 <p>PBL-250315056</p>
             </div>
             <div class="profile">
@@ -185,7 +189,7 @@
             <div class="infokan">
                 <div>
                     <span>Kode Pesanan</span>
-                    <p>TRK-001</p>
+                    <p>TRK001</p>
                 </div>
                 <div>
                     <span>Tanggal</span>
@@ -193,7 +197,7 @@
                 </div>
                 <div>
                     <span>Kantin</span>
-                    <p>Kantin 1</p>
+                    <p>Kantin Kamas Loman</p>
                 </div>
                 <div>
                     <span>Status</span>
@@ -242,7 +246,7 @@
         
         <div class="card">
             <h2>Catatan</h2>
-            <p>Mie ayam pedas, mienya banyakin  </p>
+            <p>Mie ayam pedas, mienya banyakin</p>
         </div>
 
         <div class="nota">

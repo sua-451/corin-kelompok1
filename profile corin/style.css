@@ -189,7 +189,7 @@ body {
     right: 0;
     width: 18px;
     height: 18px;
-    background-color: #1a73e8;
+   background: #e91e63;
     border: 2px solid #ffffff;
     border-radius: 50%;
     cursor: pointer;
@@ -252,7 +252,7 @@ body {
 }
 
 .btn-save {
-    background-color: #1a73e8;
+    background: #e91e63;
     color: #ffffff;
     border: none;
     padding: 10px 36px;
@@ -264,5 +264,5 @@ body {
 }
 
 .btn-save:hover {
-    background-color: #1557b0;
+    background: #ee6e99;
 }

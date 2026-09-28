@@ -12,11 +12,11 @@
         }
         header{
             display: flex;
-            font-family:Verdana, Geneva, Tahoma, sans-serif;
-            background: rgb(32, 114, 186);
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            background-color: rgb(255, 133, 201);
             color : white;
             padding: 20px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
             justify-content: space-between;
             align-items: center;
         }
@@ -25,7 +25,7 @@
             font-weight: bold;
         }
         .profile{
-            background: rgb(55, 55, 167);
+            background-color: rgb(255, 133, 201);
             width: 90px;
             height: 90px;
             justify-self: end;
@@ -34,7 +34,12 @@
         .info_pengguna{
             display: flex;
             align-items: center;
-            gap : 15px
+            gap : 15px;
+            background: none;
+        }
+        .info_pengguna:hover{
+            background: none;
+            transform: none;
         }
         .header_judul {
             display: flex;
@@ -52,7 +57,7 @@
         }
         h2{
             margin-bottom: 20px;
-            color : rgb(17, 85, 109);
+            color : rgb(189, 43, 128);
             font-size: 50px;
         }
         table {
@@ -61,11 +66,11 @@
             border-spacing: 0;
             overflow: hidden;
             border-radius: 10px;
-            box-shadow: 20px 8px 24px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 8px 24px rgba(233, 30, 99, 0.08);
             margin-top: 22px;
         }
         th{
-            background: rgb(32, 114, 186);
+            background: rgb(233, 30, 99);
             color: white;
             padding : 16px;
             box-shadow: 0 3px 8px rgba(0,0,0,0.15);
@@ -75,14 +80,14 @@
         td{
             padding: 16px;
             text-align: center;
-            border-bottom: 1px solid rgb(32, 114, 186);
+            border-bottom: 1px solid rgb(252, 186, 215);
         }
         tr:hover{
-             background-color: #cae8fc;
+             background-color: #ffe6f2;
         }
 
         a {
-            background-color: #3498db;
+            background-color: #e91e63;
             color :white;
             border: none;
             padding : 8px 15px;
@@ -93,75 +98,143 @@
         }
 
         a:hover{
-            background-color: #2980b9;
+            background-color: #c2185b;
             transform: translateY(-3px);
         }
 
         tbody tr{
              transition: all 0.2s ease;
         }
-       tr:nth-child(even):hover {
-            background: #97ddfb;
+        tr:nth-child(even):hover {
+            background-color: #ffd1eb;
         }
         
         tr:nth-child(even){
-            background: #eef6ff;
+            background-color: #fff0f7;
         }
         tr{
             background: #ffffff;
-            color: #1e3171;
+            color: #7b1fa2;
         }
 
         .proses{
-            color : rgb(210, 152, 7)
+            color : rgb(210, 130, 7);
+            font-weight: 600;
         }
 
         .tunggu {
-            color: rgb(35, 86, 189)
+            color: #e91e63;
+            font-weight: 600;
         }
         .selesai {
-            color: rgb(76, 169, 76)
+            color: rgb(76, 169, 76);
+            font-weight: 600;
         }
         .pp {
             border-radius: 50%;
             width: 90px;
             height: 90px;
             border-style: solid;
-            border-color: #103852;
+            border-color: #c2185b;
         }
         .awal{
             display: flex;
             justify-content: space-between;
+            align-items: center;
         }
         #tambah{
-            background: rgb(32, 114, 186);
-            padding: 20px;
+            background-color: #e91e63;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+            padding: 18px 20px;
             font-weight: 600;
-             color :white;
-             border-radius: 5px;
-             transition: 0.3s all ease;
-             text-decoration: none;
+            color : white;
+            border-radius: 5px;
+            transition: 0.3s all ease;
+            text-decoration: none;
         }
         #menus{
-            background: rgb(32, 114, 186);
-            padding: 20px;
+            background: #e91e63;
+            padding: 18px 20px;
             width: 150px;
             font-weight: 600;
-             color :white;
-             border-radius: 5px;
-             transition: 0.3s all ease;
-              text-decoration: none;
+            color : white;
+            border-radius: 5px;
+            transition: 0.3s all ease;
+            text-decoration: none;
+            text-align: center;
+            display: inline-block;
         }
 
         #menus:hover, #tambah:hover{
-            background-color: #2980b9;
+            background-color: #c2185b;
             transform: translateY(-3px);
             cursor: pointer;
         }
         #kontener_tombol{
             margin-top: 15px;
+            display: flex;
+            gap: 10px;
+        }
+        .bottom-nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            background-color: white;
+            padding: 10px 0;
+            border-top: 1px solid rgb(240, 240, 240);
+            box-shadow: 0 -3px 10px rgba(0, 0, 0, 0.04);
+            z-index: 100;
+        }
+        .pp_sub{
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border-color: #c2185b;
+            border-style: solid;
         }
 
+        .nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+            color: rgb(0, 0, 0);
+            cursor: pointer;
+            padding: 6px 22px;
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: 500;
+            transition: color 0.3s ease, background-color 0.3s ease;
+            background: none;
+        }
+
+        .nav-item:hover {
+            color: rgb(255, 120, 190);
+            background-color: rgb(255, 245, 252);
+            transform: none;
+
+        }
+
+        .nav-item.active {
+            color: rgb(255, 100, 180);
+            background-color: rgb(255, 240, 250);
+        }
+
+        .nav-item span {
+            font-size: 22px;
+        }
+
+        .nav-item small {
+            font-size: 11px;
+        }
+        .profile_sub {
+            width: 50px;
+            height: 50px;
+        }
     </style>
 </head>
 <body>
@@ -170,15 +243,15 @@
             <h1>CORIN</h1>
             <p>RIWAYAT PESANAN</p>
         </div>
-        <div class="info_pengguna">
+        <a href="../profile corin/prifilecorin.html" class="info_pengguna">
             <div class="nama_p">
-                <strong>MUHAMMAD ZAKI FADHILA PUTRA</strong>
+                <strong>KELOMPOK 1</strong>
                 <p>PBL-250315056</p>
             </div>
             <div class="profile">
                 <img class="pp" src="gambar/image.png" alt="ambatukam">
             </div>
-        </div>
+        </a>
     </header>
 
     <main>
@@ -186,15 +259,11 @@
             <div class="awal">
                 <h2>RIWAYAT PESANAN</h2>
                 <div id="kontener_tombol">
-                    <a href="../menu.html" id="menus">MENU</a>
-                    <a href="#" id="tambah"> + TAMBAH PESANAN</a>
+                    <a href="../tampilan menu/menu.html" id="menus">MENU</a>
+                    <a href="#" id="tambah">+ TAMBAH PESANAN</a>
                 </div>
             </div>
-            
 
-            <div class="tabel">
-                
-            </div>
             <table>
                 <thead>
                     <tr>
@@ -212,7 +281,7 @@
                     <tr>
                         <td>TRK001</td>
                         <td>22/09/2026</td>
-                        <td>Kantin 1</td>
+                        <td>Kantin Kamas Loman</td>
                         <td>7</td>
                         <td>Rp 20.000</td>
                         <td><span class="proses">Sedang Dibuat</span></td>
@@ -221,16 +290,16 @@
                     <tr>
                         <td>TRK002</td>
                         <td>22/09/2026</td>
-                        <td>Kantin 2</td>
+                        <td>Kantin Mie Academy</td>
                         <td>2</td>
                         <td>Rp 15.000</td>
-                        <td><span class="tunggu">Menunggu Konfirmasi</span></td>
+                        <td><span class="tunggu">Pending</span></td>
                         <td><a href="detail_riwayat/trk002.html">Lihat</a></td>
                     </tr>
                     <tr>
                         <td>TRK003</td>
                         <td>22/09/2026</td>
-                        <td>Kantin 3</td>
+                        <td>Kantin Tez</td>
                         <td>1</td>
                         <td>Rp 5.000</td>
                         <td><span class="selesai">Selesai</span></td>
@@ -239,24 +308,50 @@
                     <tr>
                         <td>TRK004</td>
                         <td>22/09/2026</td>
-                        <td>Kantin 4</td>
+                        <td>Kantin Tez</td>
                         <td>1</td>
-                        <td>Rp 5.000</td>
+                        <td>Rp 13.000</td>
                         <td><span class="selesai">Selesai</span></td>
-                        <td><a href="detail_riwayat/error_sistem.html">Lihat</a></td>
+                        <td><a href="detail_riwayat/trk004.html">Lihat</a></td>
                     </tr>
                     <tr>
                         <td>TRK005</td>
                         <td>22/09/2026</td>
-                        <td>Kantin 5</td>
-                        <td>2</td>
-                        <td>Rp 10.000</td>
-                        <td><span class="proses">Sedang Dibuat</span></td>
-                        <td><a href="detail_riwayat/error_sistem.html">Lihat</a></td>
+                        <td>Kantin Kamas Loman</td>
+                        <td>1</td>
+                        <td>Rp 4.000</td>
+                        <td><span class="tunggu">Pending</span></td>
+                        <td><a href="detail_riwayat/trk005.html">Lihat</a></td>
                     </tr>
                 </tbody>
             </table>
         </section>
+
+         <nav class="bottom-nav">
+            <a href="../tampilan menu/menu.html" class="nav-item">
+                <span>⌂</span>
+                <small>Menu</small>
+            </a>
+            <div class="nav-item">
+                <span>🛒</span>
+                <small>Keranjang</small>
+            </div>
+            <div class="nav-item active">
+                <span>🧾</span>
+                <small>Riwayat Pesanan</small>
+            </div>
+            <div class="nav-item">
+                <span>❤️</span>
+                <small>Favorit</small>
+            </div>
+            <a href="../profile corin/prifilecorin.html" class="nav-item">
+                <div>
+                    <img class="pp_sub" src="../riwayat_pesanan/gambar/image.png" alt="">
+                </div>
+                <small>Profil</small>
+            </a>
+    </nav>
+        </nav>
     </main>
 </body>
 </html>

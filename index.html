@@ -3,65 +3,135 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ini index</title>
+    <title>CORIN </title>
     <style>
-        img{
+        *{
+            margin:0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+         header{
             display: flex;
-            justify-self: center;
-            width: 1000px;
-             animation: muter-muter 5s linear infinite;
-             border-radius: 50%;
-             object-fit: cover;
-        }
-        body {
-            animation: jedag-jedug 0.5s infinite;
-        }       
-
-        @keyframes jedag-jedug {
-            0%   { background: red; }
-            20%  { background: blue; }
-            40%  { background: yellow; }
-            60%  { background: green; }
-            80%  { background: purple; }
-            100% { background: red; }
-        }
-
-        @keyframes muter-muter {
-            from{
-                transform: rotate(0deg);
-            }
-            to{
-                 transform: rotate(360deg);
-            }
-        }
-        a{
-            background: blue;
+            font-family:Verdana, Geneva, Tahoma, sans-serif;
+            background-color: rgb(255, 174, 231);
+            color : white;
             padding: 20px;
-            color: aliceblue;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+            justify-content: space-between;
+            align-items: center;
+        }
+        .navbar a   {
+            color: white;
             text-decoration: none;
             font-size: 20px;
-            border-radius: 10px;
-            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-             transition: 0.3s all ease;
-
+            font-weight: bold;
         }
-        a:hover{
-            background: rgb(91, 129, 204);
-             transform: translateY(-3px);
-        }
-        .menu{
+        .navbar {
             display: flex;
-            justify-self: center;
-            gap: 10px;
-            margin-bottom: 550px;
+            gap: 5px;
         }
+        .tombol{
+             background: #e91e63;
+             padding : 10px;
+             border-radius: 5px;
+             box-shadow: 0px 2px 1px black;
+             transition: 0.3s all ease;
+        }
+
+        .tombol:hover{
+            transform: translateY(-3px);
+            background: rgb(211, 137, 195);
+        }
+        .judul-kontainer {
+            position:relative ;
+            width: 100%;
+            height: calc(100vh-130px);
+            overflow: hidden;
+        }
+        .judul-kontainer img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.2;
+        }
+        .judul {
+            position: absolute;
+            top : 50%;
+            left : 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color : white;
+            width: 80%;
+        }
+        .judul h1 {
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-size: 70px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color :  rgb(255, 174, 231);
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+        }
+
+        .judul p {
+            font-size: 30px;
+            text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.8);
+        }
+        body {
+            background: black;
+        }
+
+        footer {
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+             background-color: rgb(245, 136, 212);
+            color: rgb(254, 254, 254);
+            width: 100%;
+            height: 50px;
+            display: flex;
+            font-size: 20px;
+            justify-content: center;
+        }
+        footer p {
+            align-self: center;
+        }
+        .garis {
+            width: 900px;
+            height: 2px;
+            background: #e91e63;
+            justify-self: center;
+            margin-top: 10px;
+        }
+
     </style>
 </head>
 <body>
-    <img src="riwayat_pesanan/gambar/anomali.png" alt="">
-    <div class="menu">
-        <a href="menu.html">MENU</a>
-        <a href="riwayat_pesanan/riwayat_pemesanan.html">Riwayat Pesanan</a>
-    </div>
+    <body>
+        <header>
+            <div class="header_judul">
+                <h1>CORIN</h1>
+                <p>Selamat Datang di Kantin Politeknik Negeri Cilacap</p>
+            </div>
+            <div class="navbar">
+                <div class="tombol">
+                    <a href="login_screen/register.html">Register</a>
+                </div>
+                <div class="tombol">
+                    <a href="login_screen/login.html">Login</a>
+                </div>
+            </div>
+        </header>
+
+        <div class="judul-kontainer">
+            <img src="riwayat_pesanan/gambar/index.png" alt="gambar index">
+            <div class="judul">
+                <h1>CORIN</h1>
+                <p>Canteen Ordering & Retrieval Information Network</p>
+                <div class="garis"></div>
+            </div>
+        </div>
+    </body>
+
+    <footer>
+        <p>Project Web CORIN by Kelompok 1 </p>
+    </footer>
 </body>
 </html>
