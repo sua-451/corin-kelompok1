@@ -9,12 +9,12 @@ p, td, input, button, a { line-height:1.45; }
 header, .header, .header_judul, .top-header, .navbar, .page-title { background:var(--sage) !important; color:var(--charcoal) !important; border-color:var(--charcoal) !important; }
 header, .header, .header_judul, .navbar, .top-header { border-bottom:2px solid var(--charcoal) !important; }
 header h1, header p, .header h1, .header p, .header_judul, .nama_p, .header-title { color:var(--charcoal) !important; }
-header, .header { min-height:180px; padding:26px 30px !important; border-radius:0 0 22px 22px; }
-header h1, .header h1 { font-size:clamp(2.45rem, 5vw, 3.35rem) !important; }
-header .header_judul p, .header p { margin-left:0 !important; font-size:.92rem !important; letter-spacing:.06em; }
-header .info_pengguna, .header .info_pengguna { gap:16px; }
-header .profile, header .profil, .header .profile, .header .profil { background:transparent !important; }
-header .pp, .header .pp { border:3px solid var(--charcoal) !important; }
+header:not(.top-header), .header { min-height:150px !important; padding:22px 30px !important; border-radius:0 0 22px 22px; }
+header:not(.top-header) h1, .header h1 { font-size:clamp(2.25rem, 4vw, 3rem) !important; }
+header:not(.top-header) .header_judul p, .header p { margin-left:0 !important; font-size:.88rem !important; letter-spacing:.06em; }
+header:not(.top-header) .info_pengguna, .header .info_pengguna { gap:16px; }
+header:not(.top-header) .profile, header:not(.top-header) .profil, .header .profile, .header .profil { background:transparent !important; }
+header:not(.top-header) .pp, .header .pp { border:3px solid var(--charcoal) !important; }
 .bottom-nav, .nav-menu { background:#fff !important; border-color:var(--metal) !important; }
 .bottom-nav { min-height:72px; }
 .nav-item { min-width:82px; }
@@ -61,6 +61,9 @@ tbody tr:hover, tr:nth-child(even):hover { background:#e8efdf !important; }
 .back a { margin:0 !important; }
 .navbar a, table a { display:inline-block; background:var(--lime) !important; color:var(--charcoal) !important; border:2px solid var(--charcoal) !important; border-radius:7px !important; font-weight:700 !important; box-shadow:2px 2px 0 var(--charcoal); }
 .navbar a:hover, table a:hover { background:#b6e05e !important; transform:translate(1px,1px) !important; box-shadow:1px 1px 0 var(--charcoal); }
+.navbar .tombol { padding:0 !important; background:transparent !important; border:0 !important; border-radius:0 !important; box-shadow:none !important; }
+.navbar .tombol:hover { background:transparent !important; transform:none !important; box-shadow:none !important; }
+.navbar .tombol a { padding:10px 14px; }
 .proses, .tunggu, .selesai, .status { display:inline-block; padding:5px 9px; border:1.5px solid var(--charcoal) !important; border-radius:999px !important; box-shadow:none !important; }
 .tunggu { background:#fffefb !important; }
 .proses { background:var(--sage) !important; }
