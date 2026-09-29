@@ -4,66 +4,101 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Keranjang - CORIN</title>
-
     <style>
+        :root {
+            --sage: #B2C2A6;
+            --charcoal: #2B2D31;
+            --lime: #9ECC3B;
+            --crimson: #B82633;
+            --canvas: #F4F6F2;
+            --metal: #8D9499;
+        }
+
         * {
+            font-family: Inter, Arial, sans-serif;
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: Arial, sans-serif;
         }
 
         body {
-            background: #f4f7fb;
-            color: #1f2937;
+            background-color: var(--canvas);
+            color: var(--charcoal);
+            padding-bottom: 90px;
         }
 
-        /* Navbar */
-        .navbar {
-            background: #163b6d;
-            height: 70px;
+        h1, h2, h3 {
+            letter-spacing: -.03em;
+            line-height: 1.1;
+        }
+
+        p, td, input, button, a {
+            line-height: 1.45;
+        }
+
+        header {
+            background-color: var(--sage);
+            color: var(--charcoal);
+            border-bottom: 2px solid var(--charcoal);
+            min-height: 150px;
+            padding: 22px 30px;
+            border-radius: 0 0 22px 22px;
             display: flex;
-            align-items: center;
             justify-content: space-between;
-            padding: 0 60px;
-            color: white;
-        }
-
-        .logo {
-            font-size: 26px;
-            font-weight: bold;
-        }
-
-        .logo span {
-            color: #7db7ff;
-        }
-
-        .nav-menu {
-            display: flex;
-            gap: 30px;
             align-items: center;
         }
 
-        .nav-menu a {
-            color: white;
+        .header_judul h1 {
+            color: var(--charcoal);
+            font-size: clamp(2.25rem, 4vw, 3rem);
+        }
+
+        .header_judul p {
+            color: var(--charcoal);
+            font-size: .88rem;
+            letter-spacing: .06em;
+            margin-top: 4px;
+        }
+
+        .info_pengguna {
+            display: flex;
+            align-items: center;
+            gap: 16px;
             text-decoration: none;
-            font-size: 15px;
         }
 
-        .nav-menu a:hover {
-            color: #9bc7ff;
+        .nama_p {
+            color: var(--charcoal);
+            text-align: right;
         }
 
-        .nav-menu .active {
-            font-weight: bold;
-            border-bottom: 2px solid white;
-            padding-bottom: 5px;
+        .nama_p strong {
+            font-size: 0.95rem;
+        }
+
+        .nama_p p {
+            font-size: 0.8rem;
+            opacity: 0.8;
+        }
+
+        .profile {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+        }
+
+        .pp {
+            border: 3px solid var(--charcoal);
+            border-radius: 50%;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         .container {
-            width: 90%;
-            max-width: 1200px;
+            max-width: 1100px;
             margin: 40px auto;
+            padding: 0 20px;
         }
 
         .page-title {
@@ -71,13 +106,13 @@
         }
 
         .page-title h1 {
-            color: #163b6d;
-            font-size: 30px;
+            color: var(--charcoal);
+            font-size: 2.2rem;
             margin-bottom: 8px;
         }
 
         .page-title p {
-            color: #6b7280;
+            color: #5d6368;
         }
 
         .cart-layout {
@@ -86,17 +121,25 @@
             gap: 25px;
         }
 
-        .cart-box {
-            background: white;
-            border-radius: 12px;
+        .cart-box, .summary {
+            background: #fffefb;
+            border: 2px solid var(--charcoal);
+            border-top: 3px dashed var(--sage);
+            border-radius: 10px;
             padding: 25px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            box-shadow: 4px 4px 0 rgba(43, 45, 49, .14);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
 
-        .cart-box h2 {
-            color: #163b6d;
+        .cart-box:hover, .summary:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 6px 6px 0 rgba(43, 45, 49, .18);
+        }
+
+        .cart-box h2, .summary h2 {
+            color: var(--charcoal);
             margin-bottom: 20px;
-            font-size: 21px;
+            font-size: 1.25rem;
         }
 
         .cart-item {
@@ -104,20 +147,26 @@
             align-items: center;
             gap: 18px;
             padding: 18px 0;
-            border-bottom: 1px solid #e5e7eb;
+            border-bottom: 1px dashed var(--metal);
         }
 
         .food-image {
             width: 100px;
             height: 90px;
-            background: #dbeafe;
+            background: var(--canvas);
             border-radius: 10px;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #2563eb;
-            font-size: 13px;
+            overflow: hidden;
             flex-shrink: 0;
+            border: 2px solid var(--charcoal);
+        }
+
+        .food-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         .item-info {
@@ -125,20 +174,28 @@
         }
 
         .item-info h3 {
-            color: #1f2937;
-            margin-bottom: 7px;
-            font-size: 18px;
+            color: var(--charcoal);
+            margin-bottom: 4px;
+            font-size: 1.1rem;
         }
 
-        .item-info p {
-            color: #6b7280;
-            font-size: 14px;
+        .item-kantin {
+            color: #5d6368;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            margin-bottom: 6px;
+            text-transform: uppercase;
+        }
+
+        .price, .item-total {
+            color: #54751c;
+            font-weight: 700;
         }
 
         .price {
-            color: #163b6d;
-            font-weight: bold;
-            margin-top: 8px;
+            font-size: 0.95rem;
+            margin-top: 4px;
         }
 
         .quantity {
@@ -150,16 +207,23 @@
         .quantity button {
             width: 30px;
             height: 30px;
-            border: none;
+            border: 2px solid var(--charcoal);
             border-radius: 6px;
-            background: #e5efff;
-            color: #163b6d;
-            font-size: 18px;
+            background: var(--lime);
+            color: var(--charcoal);
+            font-size: 16px;
+            font-weight: bold;
             cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 2px 2px 0 var(--charcoal);
         }
 
         .quantity button:hover {
-            background: #c9ddff;
+            background: #b6e05e;
+            transform: translate(1px, 1px);
+            box-shadow: 1px 1px 0 var(--charcoal);
         }
 
         .quantity span {
@@ -171,120 +235,160 @@
         .item-total {
             min-width: 110px;
             text-align: right;
-            font-weight: bold;
-            color: #163b6d;
+            font-size: 1rem;
         }
 
         .delete-btn {
-            border: none;
-            background: none;
-            color: #dc2626;
+            background: var(--crimson);
+            color: #fff;
+            border: 2px solid var(--charcoal);
+            box-shadow: 2px 2px 0 var(--charcoal);
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 12px;
             cursor: pointer;
-            font-size: 13px;
             margin-top: 8px;
+            font-weight: 700;
         }
 
         .delete-btn:hover {
-            text-decoration: underline;
-        }
-
-        .summary {
-            background: white;
-            border-radius: 12px;
-            padding: 25px;
-            height: fit-content;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-        }
-
-        .summary h2 {
-            color: #163b6d;
-            margin-bottom: 25px;
-            font-size: 21px;
+            background: #961d28;
+            transform: translate(1px, 1px);
+            box-shadow: 1px 1px 0 var(--charcoal);
         }
 
         .summary-row {
             display: flex;
             justify-content: space-between;
             margin-bottom: 15px;
-            color: #4b5563;
+            color: var(--charcoal);
+            font-size: 0.95rem;
         }
 
         .summary-total {
-            border-top: 1px solid #e5e7eb;
+            border-top: 2px dashed var(--metal);
             padding-top: 18px;
             margin-top: 15px;
             display: flex;
             justify-content: space-between;
-            font-size: 20px;
+            font-size: 1.15rem;
             font-weight: bold;
-            color: #163b6d;
+            color: var(--charcoal);
         }
 
         .checkout-btn {
             width: 100%;
             margin-top: 25px;
             padding: 14px;
-            border: none;
+            border: 2px solid var(--charcoal);
             border-radius: 8px;
-            background: #163b6d;
-            color: white;
-            font-size: 16px;
-            font-weight: bold;
+            background: var(--lime);
+            color: var(--charcoal);
+            font-size: 1rem;
+            font-weight: 700;
             cursor: pointer;
+            box-shadow: 3px 3px 0 var(--charcoal);
+            transition: 0.2s all ease;
         }
 
         .checkout-btn:hover {
-            background: #24558f;
-        }
-
-        .checkout-btn:disabled {
-            background: #9ca3af;
-            cursor: not-allowed;
+            background: #b6e05e;
+            transform: translate(2px, 2px);
+            box-shadow: 1px 1px 0 var(--charcoal);
         }
 
         .continue-btn {
             display: block;
             text-align: center;
             margin-top: 15px;
-            color: #2563eb;
+            color: var(--charcoal);
             text-decoration: none;
-            font-size: 14px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            padding: 10px;
+            border: 2px solid var(--charcoal);
+            border-radius: 8px;
+            background: var(--sage);
+            box-shadow: 2px 2px 0 var(--charcoal);
+            transition: 0.2s all ease;
         }
 
         .continue-btn:hover {
-            text-decoration: underline;
+            background: #a3b596;
+            transform: translate(1px, 1px);
+            box-shadow: 1px 1px 0 var(--charcoal);
         }
 
-        /* Keranjang Kosong */
-        .empty-cart {
-            text-align: center;
-            padding: 50px 20px;
-            color: #6b7280;
+        .bottom-nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            background: #fff;
+            min-height: 72px;
+            padding: 10px 0;
+            border-top: 2px solid var(--charcoal);
+            box-shadow: 0 -3px 10px rgba(0, 0, 0, 0.04);
+            z-index: 100;
         }
 
-        .empty-cart h3 {
-            color: #163b6d;
-            margin-bottom: 10px;
-        }
-
-        .empty-cart a {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 10px 20px;
-            background: #163b6d;
-            color: white;
+        .nav-item {
+            min-width: 82px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+            color: var(--charcoal);
+            cursor: pointer;
+            padding: 6px 22px;
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: 500;
             text-decoration: none;
-            border-radius: 8px;
+            transition: color 0.3s ease, background-color 0.3s ease;
         }
 
-        /* Responsive */
+        .nav-item:hover, .nav-item.active {
+            background: var(--sage);
+            color: var(--charcoal);
+            font-weight: bold;
+        }
+
+        .nav-item span {
+            font-size: 22px;
+        }
+
+        .nav-item small {
+            font-size: 11px;
+        }
+
+        .pp_sub {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: 2px solid var(--charcoal);
+            object-fit: cover;
+        }
+
         @media (max-width: 800px) {
-            .navbar {
-                padding: 0 20px;
+            header {
+                min-height: auto;
+                padding: 15px 18px;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 14px;
             }
 
-            .nav-menu {
-                gap: 12px;
+            .info_pengguna {
+                width: 100%;
+                justify-content: space-between;
+            }
+
+            .nama_p {
+                text-align: left;
             }
 
             .cart-layout {
@@ -299,380 +403,140 @@
                 width: 100%;
                 text-align: left;
             }
+
+            .bottom-nav {
+                overflow-x: auto;
+                justify-content: flex-start;
+            }
+
+            .nav-item {
+                padding: 6px 12px;
+                min-width: 72px;
+            }
         }
     </style>
-    <link rel="stylesheet" href="theme.css?v=9">
 </head>
-
 <body>
 
-    <!-- Navbar -->
-    <nav class="navbar">
-        <div class="logo">
-            CO<span>RIN</span>
+    <header>
+        <div class="header_judul">
+            <h1>CORIN</h1>
+            <p>Selamat Datang di Kantin Politeknik Negeri Cilacap</p>
         </div>
+        <a href="../profile corin/prifilecorin.html" class="info_pengguna">
+            <div class="nama_p">
+                <strong>KELOMPOK 1</strong>
+                <p>PBL-250315056</p>
+            </div>
+            <div class="profile">
+                <img class="pp" src="../riwayat_pesanan/gambar/image.png" alt="Profil Pengguna">
+            </div>
+        </a>
+    </header>
 
-        <div class="nav-menu">
-            <a href="index.html">Beranda</a>
-            <a href="menu.html">Menu</a>
-            <a href="keranjang.html" class="active">Keranjang</a>
-            <a href="riwayat.html">Riwayat</a>
-            <a href="profil.html">Profil</a>
-        </div>
-    </nav>
-
-
-    <!-- Main Content -->
     <main class="container">
-
         <div class="page-title">
             <h1>Keranjang Saya</h1>
             <p>Periksa kembali menu yang ingin kamu pesan.</p>
         </div>
 
-
         <div class="cart-layout">
-
-            <!-- Daftar Keranjang -->
             <div class="cart-box">
-
                 <h2>Menu yang Dipilih</h2>
 
-                <div id="cartItems"></div>
+                <div class="cart-item">
+                    <div class="food-image">
+                        <img src="tampilan menu/gambar_menu/nasi jukut.png" alt="Nasi Goreng">
+                    </div>
+                    <div class="item-info">
+                        <h3>Nasi Jukut</h3>
+                        <p class="item-kantin">KANTIN TEZ</p>
+                        <div class="price">Rp 13.000</div>
+                        <button class="delete-btn">Hapus</button>
+                    </div>
+                    <div class="quantity">
+                        <button>-</button>
+                        <span>1</span>
+                        <button>+</button>
+                    </div>
+                    <div class="item-total">Rp 13.000</div>
+                </div>
 
+                <div class="cart-item">
+                    <div class="food-image">
+                        <img src="riwayat_pesanan/gambar/es_teh.png" alt="Es Teh Manis">
+                    </div>
+                    <div class="item-info">
+                        <h3>Es Teh Manis</h3>
+                        <p class="item-kantin">KANTIN KAMAS LOMAN</p>
+                        <div class="price">Rp 4.000</div>
+                        <button class="delete-btn">Hapus</button>
+                    </div>
+                    <div class="quantity">
+                        <button>-</button>
+                        <span>2</span>
+                        <button>+</button>
+                    </div>
+                    <div class="item-total">Rp 8.000</div>
+                </div>
             </div>
 
-
-            <!-- Ringkasan -->
             <div class="summary">
-
                 <h2>Ringkasan Pesanan</h2>
 
                 <div class="summary-row">
                     <span>Total Menu</span>
-                    <span id="totalItems">0 item</span>
+                    <span>3 item</span>
                 </div>
 
                 <div class="summary-row">
                     <span>Subtotal</span>
-                    <span id="subtotal">Rp0</span>
+                    <span>Rp 23.000</span>
                 </div>
 
                 <div class="summary-row">
                     <span>Biaya Layanan</span>
-                    <span>Rp0</span>
+                    <span>Rp 0</span>
                 </div>
 
                 <div class="summary-total">
                     <span>Total</span>
-                    <span id="total">Rp0</span>
+                    <span>Rp 23.000</span>
                 </div>
 
-                <button
-                    class="checkout-btn"
-                    id="checkoutBtn"
-                    onclick="checkout()">
-                    Pesan Sekarang
-                </button>
+                <button class="checkout-btn">Pesan Sekarang</button>
 
-                <a href="menu.html" class="continue-btn">
+                <a href="../tampilan menu/menu.html" class="continue-btn">
                     ← Kembali ke Menu
                 </a>
-
             </div>
-
         </div>
-
     </main>
 
-
-    <script>
-
-        let cart = JSON.parse(localStorage.getItem("corinCart")) || [
-
-            {
-                id: 1,
-                nama: "Nasi Goreng",
-                kategori: "Menu Kantin",
-                harga: 15000,
-                jumlah: 1
-            },
-
-            {
-                id: 2,
-                nama: "Es Teh",
-                kategori: "Minuman",
-                harga: 5000,
-                jumlah: 2
-            }
-
-        ];
-
-        function formatRupiah(angka) {
-
-            return new Intl.NumberFormat("id-ID", {
-                style: "currency",
-                currency: "IDR",
-                minimumFractionDigits: 0
-            }).format(angka);
-
-        }
-
-        function saveCart() {
-
-            localStorage.setItem(
-                "corinCart",
-                JSON.stringify(cart)
-            );
-
-        }
-
-
-        function renderCart() {
-
-            const cartItems = document.getElementById("cartItems");
-
-            cartItems.innerHTML = "";
-
-            let totalItem = 0;
-            let subtotal = 0;
-
-            // Jika keranjang kosong
-            if (cart.length === 0) {
-
-                cartItems.innerHTML = `
-                    <div class="empty-cart">
-                        <h3>Keranjang masih kosong</h3>
-                        <p>Silakan pilih menu terlebih dahulu.</p>
-
-                        <a href="menu.html">
-                            Lihat Menu
-                        </a>
-                    </div>
-                `;
-
-            }
-
-            // Tampilkan setiap item
-            cart.forEach(function(item) {
-
-                const itemTotal = item.harga * item.jumlah;
-
-                totalItem += item.jumlah;
-
-                subtotal += itemTotal;
-
-
-                const itemElement = document.createElement("div");
-
-                itemElement.className = "cart-item";
-
-                itemElement.innerHTML = `
-
-                    <div class="food-image">
-                        Foto Menu
-                    </div>
-
-                    <div class="item-info">
-
-                        <h3>${item.nama}</h3>
-
-                        <p>${item.kategori}</p>
-
-                        <div class="price">
-                            ${formatRupiah(item.harga)}
-                        </div>
-
-                        <button
-                            class="delete-btn"
-                            onclick="hapusItem(${item.id})">
-                            Hapus
-                        </button>
-
-                    </div>
-
-                    <div class="quantity">
-
-                        <button
-                            onclick="kurangiJumlah(${item.id})">
-                            -
-                        </button>
-
-                        <span>
-                            ${item.jumlah}
-                        </span>
-
-                        <button
-                            onclick="tambahJumlah(${item.id})">
-                            +
-                        </button>
-
-                    </div>
-
-                    <div class="item-total">
-                        ${formatRupiah(itemTotal)}
-                    </div>
-
-                `;
-
-
-                cartItems.appendChild(itemElement);
-
-            });
-
-            // Update ringkasan
-            document.getElementById("totalItems").textContent =
-                totalItem + " item";
-
-            document.getElementById("subtotal").textContent =
-                formatRupiah(subtotal);
-
-            document.getElementById("total").textContent =
-                formatRupiah(subtotal);
-
-            // Disable tombol jika kosong
-            const checkoutBtn =
-                document.getElementById("checkoutBtn");
-
-            checkoutBtn.disabled = cart.length === 0;
-
-        }
-
-        function tambahJumlah(id) {
-
-            const item = cart.find(function(item) {
-                return item.id === id;
-            });
-
-
-            if (item) {
-
-                item.jumlah++;
-
-                saveCart();
-
-                renderCart();
-
-            }
-
-        }
-
-        function kurangiJumlah(id) {
-
-            const item = cart.find(function(item) {
-                return item.id === id;
-            });
-
-
-            if (item) {
-
-                if (item.jumlah > 1) {
-
-                    item.jumlah--;
-
-                } else {
-
-                    // Jika jumlah sudah 1,
-                    // hapus item dari keranjang
-
-                    hapusItem(id);
-
-                    return;
-
-                }
-
-
-                saveCart();
-
-                renderCart();
-
-            }
-
-        }
-
-        function hapusItem(id) {
-
-            const item = cart.find(function(item) {
-                return item.id === id;
-            });
-
-
-            if (!item) {
-                return;
-            }
-
-
-            const yakin = confirm(
-                "Apakah kamu yakin ingin menghapus " +
-                item.nama +
-                " dari keranjang?"
-            );
-
-
-            if (yakin) {
-
-                cart = cart.filter(function(item) {
-                    return item.id !== id;
-                });
-
-
-                saveCart();
-
-                renderCart();
-
-            }
-
-        }
-
-        function checkout() {
-
-            if (cart.length === 0) {
-
-                alert("Keranjang masih kosong.");
-
-                return;
-
-            }
-
-
-            let total = 0;
-
-            cart.forEach(function(item) {
-
-                total += item.harga * item.jumlah;
-
-            });
-
-
-            const yakin = confirm(
-                "Pesanan kamu dengan total " +
-                formatRupiah(total) +
-                " akan diproses.\n\n" +
-                "Lanjutkan pesanan?"
-            );
-
-
-            if (yakin) {
-
-                alert(
-                    "Pesanan berhasil dibuat!\n\n" +
-                    "Silakan cek halaman Riwayat Pesanan."
-                );
-
-                // Kosongkan keranjang setelah pesan
-                cart = [];
-
-                saveCart();
-
-                renderCart();
-
-            }
-
-        }
-        
-        renderCart();
-
-    </script>
+    <nav class="bottom-nav">
+        <a href="../tampilan menu/menu.html" class="nav-item">
+            <span>⌂</span>
+            <small>Menu</small>
+        </a>
+        <a href="#" class="nav-item active">
+            <span>🛒</span>
+            <small>Keranjang</small>
+        </a>
+        <a href="../riwayat_pesanan/riwayat_pemesanan.html" class="nav-item">
+            <span>🧾</span>
+            <small>Riwayat Pesanan</small>
+        </a>
+        <a href="favorit_menu/tampilan_favorit.html" class="nav-item">
+            <span>❤️</span>
+            <small>Favorit</small>
+        </a>
+        <a href="../profile corin/prifilecorin.html" class="nav-item">
+            <div>
+                <img class="pp_sub" src="../riwayat_pesanan/gambar/image.png" alt="Profil">
+            </div>
+            <small>Profil</small>
+        </a>
+    </nav>
 
 </body>
 </html>

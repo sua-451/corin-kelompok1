@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Favorit - CORIN</title>
+    <link rel="stylesheet" href="../theme.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+
+        body {
+            background-color: #F4F6F2;
+            padding-bottom: 100px;
+        }
+
+        header {
+            display: flex;
+            background-color: rgb(43, 45, 49);
+            color: white;
+            padding: 20px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header_judul h1 {
+            font-size: 75px;
+            font-weight: bold;
+            color: white;
+            line-height: 1;
+        }
+
+        .header_judul p {
+            font-size: 20px;
+            margin-top: 5px;
+            margin-left: 15px;
+        }
+
+        .info_pengguna {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-decoration: none;
+        }
+
+        .info_pengguna:hover {
+            background: none;
+            transform: none;
+        }
+
+        .nama_p {
+            color: white;
+            text-align: right;
+        }
+
+        .nama_p strong {
+            font-size: 0.95rem;
+        }
+
+        .nama_p p {
+            font-size: 0.8rem;
+            opacity: 0.8;
+            margin-left: 0;
+        }
+
+        .profile {
+            background-color: rgb(43, 45, 49);
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+        }
+
+        .pp {
+            border-radius: 50%;
+            width: 90px;
+            height: 90px;
+            border-style: solid;
+            border-color: #2b2d31;
+            object-fit: cover;
+        }
+
+        main {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .judul-halaman {
+            font-size: 36px;
+            color: rgb(43, 45, 49);
+            font-weight: bold;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            margin-bottom: 0;
+        }
+
+        #kontener_tombol {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        #menus, #tambah {
+            background: #e91e63;
+            padding: 10px 16px;
+            font-size: 14px;
+            font-weight: 600;
+            color: white;
+            border-radius: 5px;
+            transition: 0.3s all ease;
+            text-decoration: none;
+            text-align: center;
+            display: inline-block;
+        }
+
+        #menus:hover, #tambah:hover {
+            background-color: #c2185b;
+            transform: translateY(-2px);
+            cursor: pointer;
+        }
+
+        .container-menu {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            transition: transform 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-3px);
+        }
+
+        .card img {
+            width: 80px;
+            height: 80px;
+            object-fit: contain;
+            margin-bottom: 15px;
+        }
+
+        .nama-menu {
+            font-size: 16px;
+            font-weight: bold;
+            color: #2B2D31;
+            margin-bottom: 8px;
+        }
+
+        .kantin-menu {
+            font-size: 11px;
+            font-weight: bold;
+            color: #8D9499;
+            letter-spacing: 0.5px;
+            margin-bottom: 12px;
+        }
+
+        .harga-menu {
+            font-size: 14px;
+            color: #e91e63;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .card-actions {
+            display: flex;
+            width: 100%;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn-fav {
+            background: #fff0f7;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            color: #e91e63;
+            font-size: 18px;
+            transition: 0.2s;
+        }
+
+        .btn-fav:hover {
+            background: #ffe6f2;
+        }
+
+        .btn-tambah {
+            flex: 1;
+            background-color: #2b2d31;
+            color: #fff;
+            border: none;
+            padding: 10px 0;
+            border-radius: 5px;
+            font-weight: 600;
+            font-size: 13px;
+            cursor: pointer;
+            transition: 0.3s all ease;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .btn-tambah:hover {
+            background-color: #c2185b;
+            transform: translateY(-2px);
+        }
+
+        .bottom-nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            background-color: white;
+            padding: 10px 0;
+            border-top: 1px solid rgb(240, 240, 240);
+            box-shadow: 0 -3px 10px rgba(0, 0, 0, 0.04);
+            z-index: 100;
+        }
+
+        .pp_sub {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border-color: #2b2d31;
+            border-style: solid;
+            object-fit: cover;
+        }
+
+        .nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+            color: rgb(0, 0, 0);
+            cursor: pointer;
+            padding: 6px 22px;
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: 500;
+            transition: color 0.3s ease, background-color 0.3s ease;
+            background: none;
+            text-decoration: none;
+        }
+
+        .nav-item:hover {
+            color: rgb(255, 120, 190);
+            background-color: rgb(255, 245, 252);
+            transform: none;
+        }
+
+        .nav-item.active {
+            color: rgb(255, 100, 180);
+            background-color: rgb(255, 240, 250);
+        }
+
+        .nav-item span {
+            font-size: 22px;
+        }
+
+        .nav-item small {
+            font-size: 11px;
+        }
+
+        @media (max-width: 768px) {
+            .container-menu {
+                grid-template-columns: 1fr;
+            }
+            .section-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            #kontener_tombol {
+                width: 100%;
+            }
+            #menus, #tambah {
+                flex: 1;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header_judul">
+            <h1>CORIN</h1>
+            <p>Selamat Datang Di kantin Politeknik Negeri Cilacap</p>
+        </div>
+        <a href="../profile corin/prifilecorin.html" class="info_pengguna">
+            <div class="nama_p">
+                <strong>KELOMPOK 1</strong>
+                <p>PBL-250315056</p>
+            </div>
+            <div class="profile">
+                <img class="pp" src="../profile corin/pp/wowo.jpg" alt="Profil Pengguna">
+            </div>
+        </a>
+    </header>
+
+    <main>
+        <div class="section-header">
+            <div class="judul-halaman">MENU FAVORIT</div>
+            <div id="kontener_tombol">
+                <a href="../tampilan menu/menu.html" id="tambah">+ TAMBAH FAVORIT</a>
+            </div>
+        </div>
+
+        <div class="container-menu">
+            <div class="card">
+                <img src="../tampilan menu/gambar_menu/mie_ayam.png" alt="Mie Ayam">
+                <div class="nama-menu">Mie Ayam</div>
+                <div class="kantin-menu">KANTIN KAMAS LOMAN</div>
+                <div class="harga-menu">Rp 12.000</div>
+                <div class="card-actions">
+                    <button class="btn-fav" title="Hapus dari Favorit">❤️</button>
+                    <button class="btn-tambah">+ Tambah</button>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="../riwayat_pesanan/gambar/es_teh.png" alt="Es Teh Manis">
+                <div class="nama-menu">Es Teh Manis</div>
+                <div class="kantin-menu">KANTIN KAMAS LOMAN</div>
+                <div class="harga-menu">Rp 4.000</div>
+                <div class="card-actions">
+                    <button class="btn-fav" title="Hapus dari Favorit">❤️</button>
+                    <button class="btn-tambah">+ Tambah</button>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="../tampilan menu/gambar_menu/jus_buah.png" alt="Jus Buah">
+                <div class="nama-menu">Jus Buah</div>
+                <div class="kantin-menu">KANTIN TEZ</div>
+                <div class="harga-menu">Rp 13.000</div>
+                <div class="card-actions">
+                    <button class="btn-fav" title="Hapus dari Favorit">❤️</button>
+                    <button class="btn-tambah">+ Tambah</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <nav class="bottom-nav">
+        <a href="../tampilan menu/menu.html" class="nav-item">
+            <span>⌂</span>
+            <small>Menu</small>
+        </a>
+        <a href="../keranjang.html" class="nav-item">
+            <span>🛒</span>
+            <small>Keranjang</small>
+        </a>
+        <a href="../riwayat_pesanan/riwayat_pemesanan.html" class="nav-item">
+            <span>🧾</span>
+            <small>Riwayat Pesanan</small>
+        </a>
+        <a href="#" class="nav-item active">
+            <span>❤️</span>
+            <small>Favorit</small>
+        </a>
+        <a href="../profile corin/prifilecorin.html" class="nav-item">
+            <div>
+                <img class="pp_sub" src="../profile corin/pp/wowo.jpg" alt="Profil">
+            </div>
+            <small>Profil</small>
+        </a>
+    </nav>
+
+</body>
+</html>
