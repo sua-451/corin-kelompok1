@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Corin - Keranjang Belanja</title>
+    <link rel="stylesheet" href="../../css/halaman_pembeli/keranjang.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,600;1,700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header class="header">
+        <div class="logo-container">
+            <h1 class="logo">CORIN</h1>
+            <p class="logo-subtext">
+                CANTEEN ORDERING &<br>
+                <span class="italic-underline">RETRIEVAL INFORMATION NETWORK</span>
+            </p>
+        </div>
+        
+        <nav class="header-actions" aria-label="Navigasi Utama">
+            <div class="profile-badge">
+                <div class="profile-info">
+                    <h4 class="profile-name">MAS-MAS GANTENG ASELI PPC</h4>
+                    <div class="profile-meta">
+                        <span class="profile-role">MAHASISWA</span>
+                        <span class="profile-id">PB2612332101</span>
+                    </div>
+                    <div class="profile-type">PEMBELI</div>
+                </div>
+                <div class="profile-avatar">
+                    <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&q=80&w=150&h=150" alt="Foto Profil">
+                </div>
+            </div>
+            
+            <button class="btn btn-menu-toggle" id="btnMenuToggle" aria-label="Buka Menu Navigasi">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg>
+            </button>
+        </nav>
+    </header>
+
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <h2 class="sidebar-title">MENU PEMBELI</h2>
+            <button class="btn-close-sidebar" id="btnCloseSidebar" aria-label="Tutup Menu">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2B2D31" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+        </div>
+        <nav class="sidebar-nav">
+            <ul>
+                <li><a href="katalog_menu.html" class="active"><span class="nav-icon">🍽️</span> Menu Kantin</a></li>
+                <li><a href="#"><span class="nav-icon">🛒</span> Keranjang</a></li>
+                <li><a href="favorit.html"><span class="nav-icon">❤️</span> Favorit</a></li>
+                <li><a href="transaksi.html"><span class="nav-icon">📄</span> Transaksi</a></li>
+                <li><a href="rating_ulasan.html"><span class="nav-icon">⭐</span> Rating & Ulasan</a></li>
+                <li><a href="komplain.html"><span class="nav-icon">💬</span> Komplain Kantin</a></li>
+                <li><a href="riwayat.html"><span class="nav-icon">🧾</span> Riwayat Transaksi</a></li>
+                <li><a href="profile.html"><span class="nav-icon">👤</span> Profile</a></li>
+            </ul>
+        </nav>
+        <div class="sidebar-footer">
+            <a href="../login/login.html" class="btn-logout">LOGOUT</a>
+        </div>
+    </aside>
+    
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <main class="main-content">
+        <div class="page-header">
+            <h2 class="page-title">Keranjang Belanja</h2>
+        </div>
+
+        <div class="cart-layout">
+            <div class="cart-items-container" id="cartItemsContainer"></div>
+
+            <div class="cart-summary">
+                <h3 class="summary-title">Ringkasan Pesanan</h3>
+                
+                <div class="summary-row">
+                    <span>Total Harga (<span id="totalItem">0</span> Barang)</span>
+                    <span id="subtotalPrice">Rp 0</span>
+                </div>
+                <div class="summary-row">
+                    <span>Biaya Layanan</span>
+                    <span>Rp 2.000</span>
+                </div>
+                
+                <div class="summary-divider"></div>
+                
+                <div class="summary-row total-row">
+                    <span>Total Bayar</span>
+                    <span id="grandTotalPrice">Rp 0</span>
+                </div>
+
+                <button class="btn-checkout" id="btnCheckout">LANGSUNG PESAN</button>
+                <a href="katalog_menu.html" class="btn-back-menu">Kembali ke Katalog</a>
+            </div>
+
+        </div>
+    </main>
+
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="modal-box" id="modalBox">
+            <div class="modal-icon" id="modalIcon">⚠️</div>
+            <h3 class="modal-title" id="modalTitle">Peringatan</h3>
+            <p class="modal-message" id="modalMessage">Pesan notifikasi akan muncul di sini.</p>
+            <div class="modal-actions">
+                <button class="btn-modal-primary" id="modalBtnOk">Mengerti</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../js/halaman_pembeli/keranjang.js"></script>
+</body>
+</html>

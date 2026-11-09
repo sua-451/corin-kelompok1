@@ -1,138 +1,399 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CORIN </title>
+    <title>CORIN - Canteen Ordering</title>
     <style>
-        *{
-            margin:0;
-            padding: 0;
-            box-sizing: border-box;
+        /* RESET */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+        background-color: #f5f5f5;
+    }
+
+    /* PAGE CONTAINER */
+    .page-container {
+        width: 100%;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+    }
+
+    /* HEADER */
+    .header {
+        width: 100%;
+        height: 78px;
+        background-color: #9dcc38;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 4%;
+        position: relative;
+        z-index: 2;
+    }
+
+    /* BRAND */
+    .brand {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        color: #fff;
+        text-decoration: none;
+    }
+
+    .brand h1 {
+        font-size: 42px;
+        font-weight: 800;
+        letter-spacing: -2px;
+    }
+
+    .brand-description {
+        display: flex;
+        flex-direction: column;
+        font-size: 9px;
+        font-weight: bold;
+        font-style: italic;
+        line-height: 10px;
+        border-bottom: 1px solid #fff;
+    }
+
+    /* NAVIGATION */
+    .navigation {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .nav-button {
+        width: 78px;
+        height: 31px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        text-decoration: none;
+        font-size: 10px;
+        font-weight: bold;
+        border: 2px solid #2B2D31;
+        border-radius: 6px;
+        box-shadow: 2px 3px 0 #2B2D31;
+        transition: 0.2s ease;
+    }
+
+    .login-button {
+        background-color: #9dcc38;
+    }
+
+    .register-button {
+        background-color: #829b42;
+    }
+
+    .nav-button:hover {
+        transform: translateY(-2px);
+        box-shadow: 2px 5px 0 #454545;
+    }
+
+    /* HERO */
+    .hero {
+        flex: 1;
+        min-height: 400px;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+    }
+
+    .hero-background{
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+    }
+
+    .slide{
+        position: absolute;
+        inset: 0;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+
+        opacity: 0;
+        transform: scale(1.05);
+        transition: opacity 1.2s ease-in-out,transform 5s ease;
+    }
+
+    .slide:nth-child(1) {
+    background-image: url("image/index1.png");
+    }
+
+    /* Gambar kedua */
+    .slide:nth-child(2) {
+        background-image: url("image/index2.png");
+    }
+
+    /* Gambar ketiga */
+    .slide:nth-child(3) {
+        background-image: url("image/index3.png");
+    }
+
+    /* Gambar aktif */
+    .slide.aktif {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    /* DARK OVERLAY */
+    .hero-overlay {
+        position: absolute;
+        inset: 0;
+        z-index: 1;
+        background-color: rgba(0, 0, 0, 0.62);
+    }
+
+    /* HERO CONTENT */
+    .hero-content {
+        position: relative;
+        z-index: 2;
+        width: 90%;
+        max-width: 1000px;
+        text-align: center;
+        color: #fff;
+        margin-top: -5px;
+    }
+
+    .hero-content h2 {
+        font-size: clamp(48px, 8vw, 68px);
+        font-weight: 800;
+        line-height: 1;
+        letter-spacing: -2px;
+    }
+
+    .hero-content h3 {
+        font-size: clamp(14px, 2.5vw, 20px);
+        font-weight: 800;
+        font-style: italic;
+        margin-top: 0;
+    }
+
+    .hero-description {
+        font-size: 9px;
+        line-height: 12px;
+        font-weight: 400;
+        margin-top: 4px;
+        color: #eaeaea;
+    }
+
+    /* GREEN LINE */
+    .hero-line {
+        width: 78%;
+        height: 2px;
+        background-color: #9dcc38;
+        margin: 9px auto 9px;
+    }
+
+    /* START BUTTON */
+    .start-button {
+        width: 153px;
+        height: 25px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #9dcc38;
+        color: white;
+        text-decoration: none;
+        font-size: 10px;
+        font-weight: bold;
+        border-radius: 5px;
+        box-shadow: 2px 3px 0 #454545;
+        transition: 0.2s ease;
+    }
+
+    .start-button:hover {
+        background-color: #86b52a;
+        transform: translateY(-2px);
+    }
+
+    /* FOOTER */
+    .footer {
+        width: 100%;
+        height: 20px;
+        background-color: #9dcc38;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        font-size: 10px;
+        font-weight: bold;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 600px) {
+        .header {
+            height: 68px;
+            padding: 0 15px;
         }
-         header{
-            display: flex;
-            font-family:Verdana, Geneva, Tahoma, sans-serif;
-            background-color: rgb(255, 174, 231);
-            color : white;
-            padding: 20px;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
-            justify-content: space-between;
-            align-items: center;
-        }
-        .navbar a   {
-            color: white;
-            text-decoration: none;
-            font-size: 20px;
-            font-weight: bold;
-        }
-        .navbar {
-            display: flex;
+
+        .brand {
             gap: 5px;
         }
-        .tombol{
-             background: #e91e63;
-             padding : 10px;
-             border-radius: 5px;
-             box-shadow: 0px 2px 1px black;
-             transition: 0.3s all ease;
-        }
 
-        .tombol:hover{
-            transform: translateY(-3px);
-            background: rgb(211, 137, 195);
-        }
-        .judul-kontainer {
-            position:relative ;
-            width: 100%;
-            height: calc(100vh-130px);
-            overflow: hidden;
-        }
-        .judul-kontainer img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            opacity: 0.2;
-        }
-        .judul {
-            position: absolute;
-            top : 50%;
-            left : 50%;
-            transform: translate(-50%, -50%);
-            text-align: center;
-            color : white;
-            width: 80%;
-        }
-        .judul h1 {
-            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-            font-size: 70px;
-            font-weight: bold;
-            margin-bottom: 10px;
-            color :  rgb(255, 174, 231);
-            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
-        }
-
-        .judul p {
+        .brand h1 {
             font-size: 30px;
-            text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.8);
-        }
-        body {
-            background: black;
         }
 
-        footer {
-            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-             background-color: rgb(245, 136, 212);
-            color: rgb(254, 254, 254);
-            width: 100%;
-            height: 50px;
-            display: flex;
-            font-size: 20px;
-            justify-content: center;
-        }
-        footer p {
-            align-self: center;
-        }
-        .garis {
-            width: 900px;
-            height: 2px;
-            background: #e91e63;
-            justify-self: center;
-            margin-top: 10px;
+        .brand-description {
+            font-size: 6px;
+            line-height: 8px;
         }
 
+        .navigation {
+            gap: 6px;
+        }
+
+        .nav-button {
+            width: 60px;
+            height: 27px;
+            font-size: 8px;
+        }
+
+        .hero {
+            min-height: 450px;
+        }
+
+        .hero-content {
+            width: 94%;
+        }
+
+        .hero-content h2 {
+            font-size: 50px;
+        }
+
+        .hero-content h3 {
+            font-size: 13px;
+        }
+
+        .hero-description {
+            font-size: 10px;
+            line-height: 15px;
+        }
+
+        .desktop-break {
+            display: none;
+        }
+
+        .hero-line {
+            width: 90%;
+        }
+    }
+
+    @media (max-width: 360px) {
+        .brand h1 {
+            font-size: 25px;
+        }
+
+        .brand-description {
+            font-size: 5px;
+        }
+
+        .nav-button {
+            width: 52px;
+        }
+    }
     </style>
-    <link rel="stylesheet" href="theme.css?v=10">
 </head>
 <body>
-    <body>
-        <header>
-            <div class="header_judul">
+
+    <div class="page-container">
+
+        <!-- HEADER -->
+        <header class="header">
+            <a href="#" class="brand">
                 <h1>CORIN</h1>
-                <p>Selamat Datang di Kantin Politeknik Negeri Cilacap</p>
-            </div>
-            <div class="navbar">
-                <div class="tombol">
-                    <a href="login_screen/register.html">Register</a>
+                <div class="brand-description">
+                    <span>CANTEEN ORDERING &</span>
+                    <span>RETRIEVAL INFORMATION NETWORK</span>
                 </div>
-                <div class="tombol">
-                    <a href="login_screen/login.html">Login</a>
-                </div>
-            </div>
+            </a>
+
+            <nav class="navigation">
+                <a href="html/login/login.html" class="nav-button login-button">LOGIN</a>
+                <a href="html/register/pilih_role.html" class="nav-button register-button">REGISTER</a>
+            </nav>
         </header>
 
-        <div class="judul-kontainer">
-            <img src="riwayat_pesanan/gambar/index.png" alt="gambar index">
-            <div class="judul">
-                <h1>CORIN</h1>
-                <p>Canteen Ordering & Retrieval Information Network</p>
-                <div class="garis"></div>
+        <!-- HERO SECTION -->
+        <main class="hero">
+            <div class="hero-background">
+                <div class="slide aktif"></div>
+                <div class="slide"></div>
+                <div class="slide"></div>
             </div>
-        </div>
-    </body>
 
-    <footer>
-        <p>Project Web CORIN by Kelompok 1 </p>
-    </footer>
+            <div class="hero-overlay"></div>
+
+            <section class="hero-content">
+                <h2>CORIN</h2>
+
+                <h3>
+                    CANTEEN ORDERING & RETRIEVAL INFORMATION NETWORK
+                </h3>
+
+                <p class="hero-description">
+                    Transaksi & Pemesanan menu digital di kantin dengan mudah
+                    berkat adanya fitur antrean FIFO<br class="desktop-break">
+                    tanpa perlu antrean fisik di kantin dan terhindar dari
+                    kerumunan yang tidak kondusif serta pengelolaan transaksi
+                    dengan mudah.
+                </p>
+
+                <div class="hero-line"></div>
+
+                <a href="html/login/login.html" class="start-button">
+                    MULAI SEKARANG
+                </a>
+            </section>
+        </main>
+
+        <!-- FOOTER -->
+        <footer class="footer">
+            <p>KELOMPOK 1 - COPYRIGHT</p>
+        </footer>
+
+    </div>
+
+    <script>
+        // Tombol navigasi
+    const loginButton = document.querySelector(".login-button");
+    const registerButton = document.querySelector(".register-button");
+    const startButton = document.querySelector(".start-button");
+    const slidesGambar =document.querySelectorAll('.slide')
+    let isiSlide = 0;
+
+    function gantiSlide(){
+        slidesGambar[isiSlide].classList.remove('aktif')
+        isiSlide = (isiSlide+1)%slidesGambar.length
+        slidesGambar[isiSlide].classList.add('aktif')
+    }
+
+    // Contoh interaksi jika halaman tujuan belum dibuat
+    function checkPage(event) {
+        const target = event.currentTarget.getAttribute("href");
+
+        if (target === "login.html" || target === "register.html") {
+            console.log(`Navigasi menuju ${target}`);
+        }
+    }
+
+    setInterval(gantiSlide,5000)
+    loginButton.addEventListener("click", checkPage);
+    registerButton.addEventListener("click", checkPage);
+    startButton.addEventListener("click", checkPage);
+    </script>
 </body>
 </html>

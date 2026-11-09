@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Corin - Registrasi Penjual</title>
+    <link rel="stylesheet" href="../../css/register/role_penjual.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,600;1,700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header class="header">
+        <div class="logo-container">
+            <h1 class="logo">CORIN</h1>
+            <div class="logo-subtext">
+                CANTEEN ORDERING &<br>
+                <span class="italic-underline">RETRIEVAL INFORMATION NETWORK</span>
+            </div>
+        </div>
+        <div class="header-actions">
+            <div id="headerProfileBadge" class="profile-badge" style="display: none;">
+                <div class="profile-info">
+                    <h4 class="profile-name" id="hdrNama">-</h4>
+                    <div class="profile-meta">
+                        <span class="profile-role" id="hdrPeran">-</span>
+                    </div>
+                    <div class="profile-type">PENJUAL</div>
+                </div>
+                <div class="profile-avatar">
+                    <img id="hdrFoto" src="" alt="Foto Profil">
+                </div>
+            </div>
+
+            <button class="btn btn-back" id="btnBack">
+                <div class="icon-circle">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="15 18 9 12 15 6"></polyline>
+                    </svg>
+                </div>
+                BACK
+            </button>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="title-container">
+            <h2 class="main-title" id="roleTitle">PENJUAL</h2>
+        </div>
+
+        <div class="stepper">
+            <div class="step active" id="step1Ind">
+                <div class="step-circle">1</div>
+                <div class="step-label">BIODATA DIRI</div>
+            </div>
+            <div class="step-line"></div>
+            <div class="step" id="step2Ind">
+                <div class="step-circle">2</div>
+                <div class="step-label">BIODATA KANTIN</div>
+            </div>
+            <div class="step-line"></div>
+            <div class="step" id="step3Ind">
+                <div class="step-circle">3</div>
+                <div class="step-label">OTP</div>
+            </div>
+            <div class="step-line"></div>
+            <div class="step" id="step4Ind">
+                <div class="step-circle">4</div>
+                <div class="step-label">KONFIRMASI</div>
+            </div>
+        </div>
+
+        <div class="form-container">
+            
+            <div class="step-content active" id="step1">
+                <div class="section-title">ISI BIODATA ANDA</div>
+                
+                <div class="form-layout">
+                    <div class="form-grid">
+                        <div class="form-left">
+                            <div class="input-group">
+                                <label>NAMA LENGKAP <span class="required-dot">●</span></label>
+                                <input type="text" id="nama" placeholder="Masukkan nama lengkap">
+                            </div>
+                            <div class="input-group">
+                                <label>NOMOR HP AKTIF <span class="required-dot">●</span></label>
+                                <input type="tel" id="noHp" placeholder="Contoh: 08123456789">
+                            </div>
+                            <div class="input-group">
+                                <label>EMAIL AKTIF <span class="required-dot">●</span></label>
+                                <input type="email" id="email" placeholder="Contoh: user@gmail.com">
+                            </div>
+                            <div class="input-group">
+                                <label>PERAN PENJUAL <span class="required-dot">●</span></label>
+                                <select id="peranPenjual">
+                                    <option value="" disabled selected>Pilih Peran</option>
+                                    <option value="Bisnis Owner">Bisnis Owner</option>
+                                    <option value="Pengelola Kantin">Pengelola Kantin</option>
+                                    <option value="Karyawan Kantin">Karyawan Kantin</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-right">
+                            <div class="input-group">
+                                <label>BUAT PASSWORD <span class="required-dot">●</span></label>
+                                <input type="password" id="password" placeholder="Buat password">
+                                <div class="password-requirements">
+                                    <div class="req-item" id="req-number"><span class="icon">○</span> Harus ada angka (0-9)</div>
+                                    <div class="req-item" id="req-upper"><span class="icon">○</span> Huruf besar dan huruf kecil</div>
+                                    <div class="req-item" id="req-symbol"><span class="icon">○</span> Simbol random (!@#$%^&*()_+~)</div>
+                                    <div class="req-item" id="req-length"><span class="icon">○</span> Minimal 8 karakter</div>
+                                </div>
+                            </div>
+                            <div class="input-group">
+                                <label>KONFIRMASI PASSWORD <span class="required-dot">●</span></label>
+                                <input type="password" id="confirmPassword" placeholder="Ulangi password">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-profile-upload">
+                        <label>&nbsp;</label>
+                        <div class="upload-box" id="uploadBox">
+                            <div class="upload-placeholder" id="uploadPlaceholder">
+                                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#8D9499" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                    <circle cx="12" cy="7" r="4"></circle>
+                                </svg>
+                            </div>
+                            <img id="imgPreview" src="" alt="Preview" style="display: none;">
+                        </div>
+                        <input type="file" id="fileInput" accept="image/*" style="display: none;">
+                        <button class="btn-upload-trigger" onclick="document.getElementById('fileInput').click()">PILIH PROFILE</button>
+                    </div>
+                </div>
+                
+                <div class="action-row space-between">
+                    <div class="wajib-disi"><span class="required-dot">●</span> WAJIB DIISI</div>
+                    <button class="btn-action" id="btnNext1">LANJUT</button>
+                </div>
+            </div>
+
+            <div class="step-content" id="step2">
+                <div class="section-title">ISI BIODATA KANTIN</div>
+                
+                <div class="form-layout">
+                    <div class="form-grid">
+                        <div class="form-left">
+                            <div class="input-group">
+                                <label>NAMA KANTIN <span class="required-dot">●</span></label>
+                                <input type="text" id="namaKantin" placeholder="Masukkan nama kantin">
+                            </div>
+                            <div class="input-group">
+                                <label>LOKASI KANTIN <span class="required-dot">●</span></label>
+                                <div class="input-with-btn">
+                                    <textarea id="lokasiKantin" placeholder="Masukkan lokasi/alamat" rows="2"></textarea>
+                                    <button class="btn-maps">MAPS</button>
+                                </div>
+                            </div>
+                            <div class="input-group">
+                                <label>JAM OPERASIONAL KANTIN <span class="required-dot">●</span></label>
+                                <div class="time-grid">
+                                    <div>
+                                        <span class="sub-label">BUKA</span>
+                                        <input type="time" id="jamBuka">
+                                    </div>
+                                    <div>
+                                        <span class="sub-label">TUTUP</span>
+                                        <input type="time" id="jamTutup">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-right">
+                            <div class="input-group">
+                                <label>HARI OPERASIONAL KANTIN <span class="required-dot">●</span></label>
+                                <select id="hariOperasional">
+                                    <option value="" disabled selected>Pilih Hari</option>
+                                    <option value="Senin - Jumat">Senin - Jumat</option>
+                                    <option value="Senin - Sabtu">Senin - Sabtu</option>
+                                    <option value="Setiap Hari">Setiap Hari</option>
+                                </select>
+                            </div>
+                            <div class="input-group">
+                                <label>DESKRIPSI KANTIN <span class="required-dot">●</span></label>
+                                <textarea id="deskripsiKantin" placeholder="Jelaskan secara singkat tentang kantin Anda" rows="5"></textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-profile-upload">
+                        <label>&nbsp;</label>
+                        <div class="upload-box" id="uploadBoxKantin">
+                            <div class="upload-placeholder" id="uploadPlaceholderKantin">
+                                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#8D9499" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="9" cy="21" r="1"></circle>
+                                    <circle cx="20" cy="21" r="1"></circle>
+                                    <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                                </svg>
+                            </div>
+                            <img id="imgPreviewKantin" src="" alt="Preview Kantin" style="display: none;">
+                        </div>
+                        <input type="file" id="fileInputKantin" accept="image/*" style="display: none;">
+                        <button class="btn-upload-trigger" onclick="document.getElementById('fileInputKantin').click()">PILIH GAMBAR</button>
+                    </div>
+                </div>
+                
+                <div class="action-row space-between">
+                    <div class="wajib-disi"><span class="required-dot">●</span> WAJIB DIISI</div>
+                    <button class="btn-action" id="btnNext2">LANJUT</button>
+                </div>
+            </div>
+
+            <div class="step-content" id="step3">
+                <div class="section-title">OTP</div>
+                <div class="otp-timer" id="otpTimer">00:59</div>
+                
+                <div class="otp-inputs">
+                    <input type="text" maxlength="1" class="otp-box" onkeyup="moveToNext(this, 1)">
+                    <input type="text" maxlength="1" class="otp-box" onkeyup="moveToNext(this, 2)">
+                    <input type="text" maxlength="1" class="otp-box" onkeyup="moveToNext(this, 3)">
+                    <input type="text" maxlength="1" class="otp-box" onkeyup="moveToNext(this, 4)">
+                    <input type="text" maxlength="1" class="otp-box" onkeyup="moveToNext(this, 5)">
+                    <input type="text" maxlength="1" class="otp-box" onkeyup="moveToNext(this, 6)">
+                </div>
+
+                <p class="otp-info">
+                    Kode OTP akan dikirim ke nomor <strong id="otpTargetHp">-</strong> dan email <strong id="otpTargetEmail">-</strong><br>
+                    Belum dapat kode OTP? <a href="#" class="resend-link" id="resendOtp">minta ulang</a>
+                </p>
+
+                <div class="action-row">
+                    <button class="btn-action" id="btnNext3">LANJUT</button>
+                </div>
+            </div>
+
+            <div class="step-content" id="step4">
+                <div class="section-title">KONFIRMASI BIODATA AKUN</div>
+                
+                <div class="confirm-layout">
+                    <div class="confirm-main">
+                        <div class="confirm-tabs">
+                            <button class="tab-btn active" id="tabDiriBtn">BIODATA DIRI</button>
+                            <button class="tab-btn" id="tabKantinBtn">BIODATA KANTIN</button>
+                        </div>
+
+                        <div class="tab-content active" id="tabDiri">
+                            <div class="data-row">
+                                <div class="data-item">
+                                    <label>NAMA LENGKAP <span class="check-icon">✓</span></label>
+                                    <div class="data-val" id="valNama">-</div>
+                                </div>
+                                <div class="data-item">
+                                    <label>PERAN PENJUAL <span class="check-icon">✓</span></label>
+                                    <div class="data-val" id="valPeran">-</div>
+                                </div>
+                                <div class="data-item">
+                                    <label>NOMOR HP AKTIF <span class="check-icon">✓</span></label>
+                                    <div class="data-val" id="valHp">-</div>
+                                </div>
+                                <div class="data-item">
+                                    <label>EMAIL AKTIF <span class="check-icon">✓</span></label>
+                                    <div class="data-val" id="valEmail">-</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tab-content" id="tabKantin">
+                            <div class="data-row">
+                                <div class="data-item">
+                                    <label>NAMA KANTIN <span class="check-icon">✓</span></label>
+                                    <div class="data-val" id="valNamaKantin">-</div>
+                                </div>
+                                <div class="data-item">
+                                    <label>HARI OPERASIONAL <span class="check-icon">✓</span></label>
+                                    <div class="data-val" id="valHari">-</div>
+                                </div>
+                                <div class="data-item">
+                                    <label>LOKASI KANTIN <span class="check-icon">✓</span></label>
+                                    <div class="data-val" id="valLokasi">-</div>
+                                </div>
+                                <div class="data-item">
+                                    <label>JAM OPERASIONAL <span class="check-icon">✓</span></label>
+                                    <div class="data-val" id="valJam">-</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="warning-box mt-20">
+                            <span class="warning-icon">ⓘ</span>
+                            <p>SILAHKAN CEK KEMBALI BIODATA AKUN ANDA. JIKA ADA YANG SALAH, SILAHKAN KEMBALI KE TAHAP 1 UNTUK MEMBENARKANNYA.</p>
+                        </div>
+                    </div>
+
+                    <div class="confirm-side">
+                        <div class="confirm-profile-wrapper" id="profileWrapperDiri">
+                            <h4 class="profile-label">PROFILE DIRI</h4>
+                            <figure class="profile-box">
+                                <img id="valProfileImg" src="" alt="Profile" style="display: none;">
+                                <svg id="valProfileSvg" width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#9ECC3B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                    <circle cx="12" cy="7" r="4"></circle>
+                                </svg>
+                            </figure>
+                        </div>
+
+                        <div class="confirm-profile-wrapper" id="profileWrapperKantin" style="display: none;">
+                            <h4 class="profile-label">PROFILE KANTIN</h4>
+                            <figure class="profile-box">
+                                <img id="valImgKantin" src="" alt="Profile Kantin" style="display: none;">
+                            </figure>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="action-row">
+                    <button class="btn-action" id="btnFinish">SELESAIKAN</button>
+                </div>
+            </div>
+
+            <div class="step-content" id="step5">
+                <div class="success-container">
+                    <h2 class="success-title">REGISTRASI SELESAI</h2>
+                    <p class="success-text">
+                        ANDA SEKARANG TERDAFTAR SEBAGAI PENJUAL KANTIN<br>
+                        KLIK OKE UNTUK MELANJUTKAN KE DASHBOARD PENJUALAN
+                    </p>
+                     <form action="../halaman_pembeli/dashboard.html" method="post">
+                        <button type="submit" class="btn-action-primary" id="btnFinishRegister">OKE</button>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <footer class="footer">
+        <a href="#" class="register-link">REGISTER</a>
+    </footer>
+
+    <div id="toast" class="toast" role="alert" aria-live="assertive">
+        <span id="toastIcon" aria-hidden="true">⚠️</span>
+        <span id="toastMsg">Pesan Error</span>
+    </div>
+
+    <script src="../../js/register/role_penjual.js"></script>
+</body>
+</html>
