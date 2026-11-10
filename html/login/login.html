@@ -18,14 +18,14 @@
             </p>
         </div>
         <nav class="header-actions">
-            <a href="../../index.html" class="btn btn-back" aria-label="Kembali ke Pilih Role">
+            <button class="btn btn-back" id="btnBack" aria-label="Kembali">
                 <span class="icon-circle">
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
                         <polyline points="15 18 9 12 15 6"></polyline>
                     </svg>
                 </span>
                 BACK
-            </a>
+            </button>
         </nav>
     </header>
 
@@ -83,9 +83,33 @@
         <a href="#" class="footer-link">LOGIN</a>
     </footer>
 
-    <div id="toast" class="toast" role="alert" aria-live="assertive">
-        <span id="toastIcon" aria-hidden="true">⚠️</span>
-        <span id="toastMsg">Pesan Error</span>
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="modal-box">
+            <div class="modal-icon" id="modalIcon">⚠️</div>
+            <h3 class="modal-title" id="modalTitle">Peringatan</h3>
+            <p class="modal-message" id="modalMessage">Pesan notifikasi akan muncul di sini.</p>
+            <div class="modal-actions">
+                <button class="btn-modal-primary" id="modalBtnOk">Mengerti</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="notFoundModal">
+        <div class="modal-box">
+            <div class="modal-icon">
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#B82633" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <line x1="12" y1="8" x2="12" y2="12"></line>
+                    <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                </svg>
+            </div>
+            <h3 class="modal-title">Akun Tidak Ditemukan</h3>
+            <p class="modal-message">Email yang Anda masukkan belum terdaftar di sistem CORIN. Silakan lakukan registrasi terlebih dahulu.</p>
+            <div class="modal-actions-split">
+                <button class="btn-modal-secondary" id="btnNotFoundCancel">Batal</button>
+                <a href="../register/pilih_role.html" class="btn-modal-primary" id="btnNotFoundRegister" style="text-decoration: none; text-align: center;">Register</a>
+            </div>
+        </div>
     </div>
 
     <script src="../../js/login/login.js"></script>

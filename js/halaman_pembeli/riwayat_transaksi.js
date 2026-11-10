@@ -1,15 +1,4 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const activeProfile = JSON.parse(localStorage.getItem("corin_user_profile"));
-    if (activeProfile) {
-        const headerName = document.querySelector(".profile-name");
-        if (headerName) headerName.innerText = activeProfile.nama;
-
-        const headerRole = document.querySelector(".profile-role");
-        if (headerRole) headerRole.innerText = activeProfile.peran;
-
-        const headerAvatar = document.querySelector(".profile-avatar img");
-        if (headerAvatar && activeProfile.gambar) headerAvatar.src = activeProfile.gambar;
-    }
     const btnMenuToggle = document.getElementById("btnMenuToggle");
     const btnCloseSidebar = document.getElementById("btnCloseSidebar");
     const sidebar = document.getElementById("sidebar");
@@ -30,7 +19,12 @@ document.addEventListener("DOMContentLoaded", () => {
         return new Intl.NumberFormat("id-ID", { style: "currency", currency: "IDR", minimumFractionDigits: 0 }).format(angka);
     };
 
-    const getRiwayat = () => JSON.parse(localStorage.getItem("corin_transactions")) || [];
+    const getRiwayat = () => {
+        const session = JSON.parse(localStorage.getItem("corin_active_session"));
+        const userId = session ? session.id : "GUEST";
+        const storageKey = "corin_transactions_" + userId;
+        return JSON.parse(localStorage.getItem(storageKey)) || [];
+    };
 
     const getStatusClass = (status) => {
         switch(status) {
@@ -49,7 +43,9 @@ document.addEventListener("DOMContentLoaded", () => {
         if (transactions.length === 0) {
             riwayatList.innerHTML = `
                 <div class="empty-riwayat">
-                    <div class="empty-riwayat-icon">🧾</div>
+                    <div class="empty-riwayat-icon">
+                        <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#8D9499" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                    </div>
                     <h3>Belum Ada Riwayat Transaksi</h3>
                     <p>Anda belum pernah menyelesaikan pesanan apapun.</p>
                     <a href="katalog_menu.html" class="btn-ke-katalog">Pesan Sekarang</a>

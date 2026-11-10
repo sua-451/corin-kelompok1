@@ -1,4 +1,36 @@
 document.addEventListener("DOMContentLoaded", () => {
+    if (!localStorage.getItem("corin_users")) {
+        const demoUsers = [
+            {
+                id: "U001",
+                email: "pembeli@corin.com",
+                password: "Password123#",
+                role: "Pembeli",
+                nama: "MAS-MAS GANTENG ASELI PPC",
+                peran: "Mahasiswa",
+                gambar: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&q=80&w=150&h=150"
+            },
+            {
+                id: "U002",
+                email: "penjual@corin.com",
+                password: "Password123#",
+                role: "Penjual",
+                nama: "IBU TINI",
+                peran: "Bisnis Owner",
+                gambar: "https://images.unsplash.com/photo-1565538810643-b5bdb714032a?auto=format&fit=crop&q=80&w=150&h=150",
+                kantin: {
+                    namaKantin: "Kantin Bu Tini",
+                    deskripsi: "Menyediakan masakan rumahan khas Jawa dengan bumbu rempah pilihan.",
+                    lokasi: "Gedung A Lantai 1, Blok B",
+                    jam: "08:00 - 17:00",
+                    hari: "Senin - Jumat",
+                    gambar: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&q=80&w=400&h=200"
+                }
+            }
+        ];
+        localStorage.setItem("corin_users", JSON.stringify(demoUsers));
+    }
+
     const loginForm = document.getElementById("loginForm");
     const togglePassword = document.getElementById("togglePassword");
     const passwordInput = document.getElementById("password");
@@ -10,9 +42,14 @@ document.addEventListener("DOMContentLoaded", () => {
     const loginTitle = document.getElementById("loginTitle");
     let selectedRole = "pembeli";
 
-    const toast = document.getElementById("toast");
-    const toastMsg = document.getElementById("toastMsg");
-    let toastTimeout;
+    const modalOverlay = document.getElementById("modalOverlay");
+    const modalTitle = document.getElementById("modalTitle");
+    const modalMessage = document.getElementById("modalMessage");
+    const modalIcon = document.getElementById("modalIcon");
+    const modalBtnOk = document.getElementById("modalBtnOk");
+
+    const notFoundModal = document.getElementById("notFoundModal");
+    const btnNotFoundCancel = document.getElementById("btnNotFoundCancel");
 
     const playBeep = () => {
         try {
@@ -35,23 +72,34 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     };
 
-    const showToast = (msg, type = "error") => {
-        clearTimeout(toastTimeout);
-        toastMsg.innerText = msg;
+    const showModal = (title, message, icon = "⚠️", isError = false) => {
+        modalTitle.innerText = title;
+        modalMessage.innerText = message;
+        modalIcon.innerText = icon;
         
-        if (type === "success") {
-            toast.classList.add("success");
+        if (isError) {
+            modalBtnOk.style.backgroundColor = "var(--red-primary)";
+            modalBtnOk.style.color = "white";
         } else {
-            toast.classList.remove("success");
+            modalBtnOk.style.backgroundColor = "var(--green-primary)";
+            modalBtnOk.style.color = "var(--dark-bg)";
         }
 
-        toast.classList.add("show");
+        modalOverlay.classList.add("active");
         playBeep();
-        
-        toastTimeout = setTimeout(() => {
-            toast.classList.remove("show");
-        }, 3500);
     };
+
+    const closeModal = () => modalOverlay.classList.remove("active");
+    modalBtnOk.addEventListener("click", closeModal);
+    modalOverlay.addEventListener("click", (e) => {
+        if (e.target === modalOverlay) closeModal();
+    });
+
+    const closeNotFoundModal = () => notFoundModal.classList.remove("active");
+    btnNotFoundCancel.addEventListener("click", closeNotFoundModal);
+    notFoundModal.addEventListener("click", (e) => {
+        if (e.target === notFoundModal) closeNotFoundModal();
+    });
 
     btnRolePembeli.addEventListener("click", () => {
         if (selectedRole === "pembeli") return;
@@ -91,34 +139,60 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    loginForm.addEventListener("submit", (e) => {
+        loginForm.addEventListener("submit", (e) => {
         e.preventDefault();
         
         const email = document.getElementById("email").value.trim();
         const password = passwordInput.value;
 
         if (!email || !password) {
-            showToast("Email dan password wajib diisi!");
+            showModal("Peringatan", "Email dan password wajib diisi!", "⚠️", true);
             return;
         }
 
-        if (password.length < 8) {
-            showToast("Password minimal 8 karakter!");
-            return;
-        }
-
-        showToast(`Login ${selectedRole === "pembeli" ? "Pembeli" : "Penjual"} Berhasil! Mengalihkan...`, "success");
+        const users = JSON.parse(localStorage.getItem("corin_users")) || [];
         
+        // Cari user berdasarkan email DAN password
+        const validUser = users.find(u => u.email === email && u.password === password);
+
+        // 1. Jika email/password salah ATAU role tidak cocok, anggap "Tidak Ditemukan"
+        if (!validUser) {
+            notFoundModal.classList.add("active");
+            playBeep();
+            return;
+        }
+
+        if (selectedRole === "pembeli" && validUser.role !== "Pembeli") {
+            notFoundModal.classList.add("active");
+            playBeep();
+            return;
+        }
+
+        if (selectedRole === "penjual" && validUser.role !== "Penjual") {
+            notFoundModal.classList.add("active");
+            playBeep();
+            return;
+        }
+
+        // 2. Login Sukses
+        showModal("Berhasil!", `Login ${validUser.role} Berhasil! Mengalihkan...`, "✅", false);
+        
+        localStorage.setItem("corin_active_session", JSON.stringify(validUser));
+
         const btn = document.querySelector('.btn-login');
         btn.innerText = "MEMPROSES...";
         btn.disabled = true;
 
         setTimeout(() => {
-            if (selectedRole === "penjual") {
-                window.location.href = "../halaman_penjual/dashboard.html"; 
+            if (validUser.role === "Penjual") {
+                window.location.href = "../../html/halaman_penjual/dashboard.html";
             } else {
-                window.location.href = "../halaman_pembeli/katalog_menu.html"; 
+                window.location.href = "../../html/halaman_pembeli/katalog_menu.html";
             }
         }, 2000);
+    });
+
+    document.getElementById("btnBack").addEventListener("click", () => {
+        window.location.href = "../../index.html";
     });
 });

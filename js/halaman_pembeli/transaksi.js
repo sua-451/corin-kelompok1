@@ -13,16 +13,16 @@ document.addEventListener("DOMContentLoaded", () => {
     btnCloseSidebar.addEventListener("click", toggleSidebar);
     sidebarOverlay.addEventListener("click", toggleSidebar);
 
-    const activeProfile = JSON.parse(localStorage.getItem("corin_user_profile"));
-    if (activeProfile) {
+    const activeSession = JSON.parse(localStorage.getItem("corin_active_session"));
+    if (activeSession) {
         const headerName = document.querySelector(".profile-name");
-        if (headerName) headerName.innerText = activeProfile.nama;
+        if (headerName) headerName.innerText = activeSession.nama;
 
         const headerRole = document.querySelector(".profile-role");
-        if (headerRole) headerRole.innerText = activeProfile.peran;
+        if (headerRole) headerRole.innerText = activeSession.peran;
 
         const headerAvatar = document.querySelector(".profile-avatar img");
-        if (headerAvatar && activeProfile.gambar) headerAvatar.src = activeProfile.gambar;
+        if (headerAvatar && activeSession.gambar) headerAvatar.src = activeSession.gambar;
     }
 
     const transactionList = document.getElementById("transactionList");
@@ -69,8 +69,19 @@ document.addEventListener("DOMContentLoaded", () => {
         return new Intl.NumberFormat("id-ID", { style: "currency", currency: "IDR", minimumFractionDigits: 0 }).format(angka);
     };
 
-    const getTransactions = () => JSON.parse(localStorage.getItem("corin_transactions")) || [];
-    const saveTransactions = (data) => localStorage.setItem("corin_transactions", JSON.stringify(data));
+    const getTransactions = () => {
+        const session = JSON.parse(localStorage.getItem("corin_active_session"));
+        const userId = session ? session.id : "GUEST";
+        const storageKey = "corin_transactions_" + userId;
+        return JSON.parse(localStorage.getItem(storageKey)) || [];
+    };
+
+    const saveTransactions = (data) => {
+        const session = JSON.parse(localStorage.getItem("corin_active_session"));
+        const userId = session ? session.id : "GUEST";
+        const storageKey = "corin_transactions_" + userId;
+        localStorage.setItem(storageKey, JSON.stringify(data));
+    };
 
     const getStatusClass = (status) => {
         switch(status) {
@@ -89,7 +100,9 @@ document.addEventListener("DOMContentLoaded", () => {
         if (transactions.length === 0) {
             transactionList.innerHTML = `
                 <div class="empty-transaksi">
-                    <div class="empty-transaksi-icon">📄</div>
+                    <div class="empty-transaksi-icon">
+                        <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#8D9499" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                    </div>
                     <h3>Belum Ada Transaksi</h3>
                     <p>Anda belum melakukan pemesanan apapun.</p>
                     <a href="katalog_menu.html" class="btn-ke-katalog">Pesan Sekarang</a>
@@ -119,7 +132,7 @@ document.addEventListener("DOMContentLoaded", () => {
             }).join('');
 
             const btnBatalHTML = trx.status === 'pending' 
-                ? `<button class="btn-batal" data-id="${trx.id}">🛑 Batal Pesan</button>` 
+                ? `<button class="btn-batal" data-id="${trx.id}">Batalkan Pesanan</button>` 
                 : '';
 
             const showQueue = trx.queueNumber && (trx.status === 'pending' || trx.status === 'diproses');

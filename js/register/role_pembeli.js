@@ -264,20 +264,26 @@ document.addEventListener("DOMContentLoaded", () => {
         goToStep(3);
     });
 
-    document.getElementById("btnFinish").addEventListener("click", () => {
-        const profileData = {
+        document.getElementById("btnFinish").addEventListener("click", () => {
+        const users = JSON.parse(localStorage.getItem("corin_users")) || [];
+        
+        const newUser = {
+            id: "U" + Date.now(),
+            email: document.getElementById("email").value.trim(),
+            password: passwordInput.value,
+            role: "Pembeli",
             nama: document.getElementById("nama").value.trim(),
             peran: document.getElementById("peranPembeli").value,
             noHp: document.getElementById("noHp").value.trim(),
-            email: document.getElementById("email").value.trim(),
-            password: passwordInput.value,
             gambar: profileImageURL || "https://plus.unsplash.com/premium_photo-1677252438411-9a930d7a5168?q=80&w=880&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D"
         };
-        localStorage.setItem("corin_user_profile", JSON.stringify(profileData));
+        
+        users.push(newUser);
+        localStorage.setItem("corin_users", JSON.stringify(users));
+        localStorage.setItem("corin_user_profile", JSON.stringify(newUser));
         
         goToStep(4);
     });
-
     const btnFinishRegister = document.getElementById("btnFinishRegister");
     if (btnFinishRegister) {
         btnFinishRegister.addEventListener("click", () => {

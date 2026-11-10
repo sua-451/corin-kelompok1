@@ -1,15 +1,4 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const activeProfile = JSON.parse(localStorage.getItem("corin_user_profile"));
-    if (activeProfile) {
-        const headerName = document.querySelector(".profile-name");
-        if (headerName) headerName.innerText = activeProfile.nama;
-
-        const headerRole = document.querySelector(".profile-role");
-        if (headerRole) headerRole.innerText = activeProfile.peran;
-
-        const headerAvatar = document.querySelector(".profile-avatar img");
-        if (headerAvatar && activeProfile.gambar) headerAvatar.src = activeProfile.gambar;
-    }
     const btnMenuToggle = document.getElementById("btnMenuToggle");
     const btnCloseSidebar = document.getElementById("btnCloseSidebar");
     const sidebar = document.getElementById("sidebar");
@@ -37,10 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
         modalOverlay.classList.add("active");
     };
 
-    const closeModal = () => {
-        modalOverlay.classList.remove("active");
-    };
-
+    const closeModal = () => modalOverlay.classList.remove("active");
     modalBtnOk.addEventListener("click", closeModal);
     modalOverlay.addEventListener("click", (e) => {
         if (e.target === modalOverlay) closeModal();
@@ -154,12 +140,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
     renderCart();
 
-            btnCheckout.addEventListener("click", () => {
+    btnCheckout.addEventListener("click", () => {
         const cart = getCart();
         
         if (cart.length > 0) {
-            const now = new Date();
+            const activeSession = JSON.parse(localStorage.getItem("corin_active_session"));
+            const userId = activeSession ? activeSession.id : "GUEST";
             
+            const now = new Date();
             const dateStr = now.toLocaleString('id-ID', { 
                 day: '2-digit', 
                 month: 'short', 
@@ -169,14 +157,12 @@ document.addEventListener("DOMContentLoaded", () => {
             }).replace('.', ':');
 
             const trxId = "TRX-" + now.getTime();
-
-            let allTransactions = JSON.parse(localStorage.getItem("corin_transactions")) || [];
+            const storageKey = "corin_transactions_" + userId;
+            
+            let allTransactions = JSON.parse(localStorage.getItem(storageKey)) || [];
             
             const todayStr = now.toLocaleDateString('id-ID');
-            const todayTrx = allTransactions.filter(t => {
-                return t.rawDate === todayStr; 
-            });
-            
+            const todayTrx = allTransactions.filter(t => t.rawDate === todayStr);
             const queueNumber = todayTrx.length + 1;
 
             let newOrder = {
@@ -189,7 +175,7 @@ document.addEventListener("DOMContentLoaded", () => {
             };
             
             allTransactions.unshift(newOrder); 
-            localStorage.setItem("corin_transactions", JSON.stringify(allTransactions));
+            localStorage.setItem(storageKey, JSON.stringify(allTransactions));
             
             localStorage.removeItem("corin_cart");
             

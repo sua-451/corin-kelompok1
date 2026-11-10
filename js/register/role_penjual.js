@@ -341,27 +341,33 @@ document.addEventListener("DOMContentLoaded", () => {
         document.getElementById("profileWrapperKantin").style.display = "flex";
     });
 
-    document.getElementById("btnFinish").addEventListener("click", () => {
-        const profileData = {
+        document.getElementById("btnFinish").addEventListener("click", () => {
+        const users = JSON.parse(localStorage.getItem("corin_users")) || [];
+        
+        const newUser = {
+            id: "U" + Date.now(),
+            email: document.getElementById("email").value.trim(),
+            password: passwordInput.value,
+            role: "Penjual",
             nama: document.getElementById("nama").value.trim(),
             peran: document.getElementById("peranPenjual").value,
             noHp: document.getElementById("noHp").value.trim(),
-            email: document.getElementById("email").value.trim(),
-            password: passwordInput.value,
-            gambar: profileImageURL || ""
+            gambar: profileImageURL || "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&q=80&w=150&h=150",
+            kantin: {
+                namaKantin: document.getElementById("namaKantin").value.trim(),
+                lokasi: document.getElementById("lokasiKantin").value.trim(),
+                jam: `${document.getElementById("jamBuka").value} - ${document.getElementById("jamTutup").value}`,
+                hari: document.getElementById("hariOperasional").value,
+                deskripsi: document.getElementById("deskripsiKantin").value.trim(),
+                gambar: imageKantinURL
+            }
         };
-        localStorage.setItem("corin_user_profile", JSON.stringify(profileData));
         
-        const kantinData = {
-            namaKantin: document.getElementById("namaKantin").value.trim(),
-            lokasi: document.getElementById("lokasiKantin").value.trim(),
-            jamBuka: document.getElementById("jamBuka").value,
-            jamTutup: document.getElementById("jamTutup").value,
-            hari: document.getElementById("hariOperasional").value,
-            deskripsi: document.getElementById("deskripsiKantin").value.trim(),
-            gambar: imageKantinURL
-        };
-        localStorage.setItem("corin_kantin_profile", JSON.stringify(kantinData));
+        users.push(newUser);
+        localStorage.setItem("corin_users", JSON.stringify(users));
+        
+        localStorage.setItem("corin_user_profile", JSON.stringify(newUser));
+        localStorage.setItem("corin_kantin_profile", JSON.stringify(newUser.kantin));
         
         goToStep(5);
     });

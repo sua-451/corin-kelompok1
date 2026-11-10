@@ -48,7 +48,6 @@ Metode ini memungkinkan tim untuk melakukan evaluasi, pengujian, dan perbaikan s
 | 3 | Muhammad Zaki Fadhila Putra | 250315056 |
 | 4 | Irma Siti Wahyuni | 250115048 |
 | 5 | Hauzan Arhab | 250315045 |
-| 6 | Hauzan Arhab | 250315045 |
 
 ## 📌 Ruang Lingkup Proyek
 
